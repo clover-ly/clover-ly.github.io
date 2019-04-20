@@ -1,0 +1,48 @@
+body {
+  font-family:sans-serif;
+}
+.minbox {
+  width:40px;
+}
+
+#ex {
+  display:inline-block;
+}
+#exp {
+  display:inline-block;
+}
+#nm90 {
+  display:none;
+}
+#nm95 {
+  display:none;
+}
+#nm100 {
+  display:none;
+}
+.entry {
+  background:#eee;
+  margin-bottom:5px;
+  width: 300px;
+  font-size:1.2em;
+  padding:1%;
+  display:inline-block;
+  border-radius:2px;
+}
+
+input {
+  width: 100px;
+  float:right;
+}
+
+button {
+  background: #1122ff;
+  padding:1em;
+  color:white;
+  border:none;
+  border-radius:2px;
+  font-size:1em;
+  margin:1em;
+  top: 0px;
+}
+

@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="index.js"></script>
+  <title> GW Calc</title>
+</head>
+
+<body>
+
+
+<b><span style="font-size:1.2em;">Show/Hide:<br></b></span>
+<button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideEx()">Extreme</button>
+<button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideExp()">Extreme+</button>
+<button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideNM90()">NM90</button>
+<button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideNM95()">NM95</button>
+<button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideNM100()">NM100</button>
+<br><br> 
+
+
+<div class="entry" id="ex">
+  <b>Extreme:</b> <br>
+  Clear time (min | sec): 
+  <input type="text" style="width:40px;" id="exTimeInputSec" value="0">
+  <input type="text" style="width:40px;" id="exTimeInputMin" value="0">   
+  <bR>
+
+  Honors: <input type="text" id="exHonorsInput" value="51000"> <br>
+  Honors Per Hour: <span id="exHPM">0</span>
+</div>
+ 
+<div class="entry" id="exp">
+  <b>Extreme+:<br> </b>
+   Clear time (min | sec): 
+  <input type="text" style="width:40px;" id="expTimeInputSec" value="0">
+  <input type="text" style="width:40px;" id="expTimeInputMin" value="0">   
+  <br>
+  Honors: <input type="text" id="expHonorsInput" value="72000"> <br>
+  Honors Per Hour: <span id="expHPM">0</span>
+</div>
+  
+ 
+
+<div class="entry" id="nm90">
+  <b>Nightmare 90:<br></b>
+   Clear time (min | sec): 
+  <input type="text" style="width:40px;" id="nm90TimeInputSec" value="0">
+  <input type="text" style="width:40px;" id="nm90TimeInputMin" value="0">   
+  <br>
+  Honors: <input type="text" id="nm90HonorsInput" value="260000"> <br>
+  Honors Per Hour: <span id="nm90HPM">0</span>
+</div>
+
+<div class="entry" id="nm95">
+  <b>Nightmare 95:<br> </b>
+  Clear time (min | sec): 
+  <input type="text" style="width:40px;" id="nm95TimeInputSec" value="0">
+  <input type="text" style="width:40px;" id="nm95TimeInputMin" value="0">   
+  <br>
+  Honors: <input type="text" id="nm95HonorsInput" value="910000"> <br>
+  Honors Per Hour: <span id="nm95HPM">0</span>
+</div>
+
+<div class="entry" id="nm100">
+  <b>Nightmare 100:<br> </b>
+  Clear time (min | sec): 
+  <input type="text" style="width:40px;" id="nm100TimeInputSec" value="0">
+  <input type="text" style="width:40px;" id="nm100TimeInputMin" value="0">   
+  <br>
+  Honors: <input type="text" id="nm100HonorsInput" value="2650000"> <br>
+  Honors Per Hour: <span id="nm100HPM">0</span>
+</div>
+ 
+<br>
+
+<button type="button" name="compareButton" onclick="rateCompare()">Compare!</button>
+<button type="button" name="compareButton" onclick="formReset()" style="background:#888;">Reset</button>
+<br><br> 
+  
+</html>
+
+</body>
