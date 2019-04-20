@@ -7,7 +7,7 @@ function rateCompare() {
   var nm95Honors = parseFloat(document.getElementById("nm95HonorsInput").value);
   var nm100Honors = parseFloat(document.getElementById("nm100HonorsInput").value);
   
-  //gets the times from the form
+  //clear times from form
   var exClearTimeMin = parseFloat(document.getElementById("exTimeInputMin").value);
   var exClearTimeSec = parseFloat(document.getElementById("exTimeInputSec").value);
   var exClearTimeMin = exClearTimeMin*60;
@@ -41,38 +41,6 @@ function rateCompare() {
   var nm95HPS = nm95Honors/nm95ClearTime;
   var nm100HPS = nm100Honors/nm100ClearTime;
   
-  //compares gain per sec to find the highest
-  
-  
-  // returns the higher value 
-  //this is so ghetto im sorry
-  
-  /*if (exHPS>expHPS && exHPS>nm90HPS){
-    if(exHPS>nm95HPS && exHPS>nm100HPS){
-    document.getElementById("result").innerHTML = "ex is more efficient";
-    }
-  }
-  if (expHPS>exHPS && expHPS>nm90HPS) {
-    if (expHPS>nm95HPS && expHPS>nm100HPS){
-    document.getElementById("result").innerHTML = "exp is more efficient";
-    }
-  }
-  if (nm90HPS>expHPS && nm90HPS>exHPS) {
-    if (nm90HPS>nm95HPS && nm90HPS>nm100HPS){
-    document.getElementById("result").innerHTML = "nm90 is more efficient";
-    }
-  }
-  if (nm95HPS>expHPS && nm95HPS>exHPS) {
-    if (nm95HPS>nm90HPS && nm95HPS>nm100HPS){
-    document.getElementById("result").innerHTML = "nm95 is more efficient";
-    }
-  }
-  if (nm100HPS>expHPS && nm100HPS>exHPS) {
-    if (nm100HPS>nm90HPS && nm100HPS>nm95HPS){
-    document.getElementById("result").innerHTML = "nm100 is more efficient";
-    }
-  }*/
- 
   
   //converts honors per sec to honors per min and fills out the chart
   var exHPM = exHPS*3600;
