@@ -138,6 +138,25 @@ function formReset(){
   document.getElementById("nm90").style.display = "none";
   document.getElementById("nm95").style.display = "none";
   document.getElementById("nm100").style.display = "none";
+  
+  document.getElementById("exAPUPH").innerHTML = 0;
+  document.getElementById("expAPUPH").innerHTML = 0;
+  document.getElementById("nm90APUPH").innerHTML = 0;
+  document.getElementById("nm95APUPH").innerHTML = 0;
+  document.getElementById("nm100APUPH").innerHTML = 0;
+  
+  document.getElementById("exTPH").innerHTML = 0;
+  document.getElementById("expTPH").innerHTML = 0;
+  document.getElementById("nm90TPH").innerHTML = 0;
+  document.getElementById("nm95TPH").innerHTML = 0; 
+  document.getElementById("nm100TPH").innerHTML = 0;
+
+  document.getElementById("exfph").innerHTML = 0;
+  document.getElementById("expfph").innerHTML = 0;
+  document.getElementById("nm90fph").innerHTML = 0;
+  document.getElementById("nm95fph").innerHTML = 0;
+  document.getElementById("nm100fph").innerHTML = 0;
+
 }
 
 function hideEx() {
