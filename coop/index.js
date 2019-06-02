@@ -9,7 +9,7 @@ function generate() {
   raidTextList.shiva= "シヴァ ";
   raidTextList.grimnir= "グリム ";
   raidTextList.alex= "ゴブロ ";
-  raidTextList.metat= "メタトロン ";
+  raidTextList.metatron= "メタトロン ";
   raidTextList.avatar= "アバター ";
   raidTextList.PBN= "よわバハ ";
   raidTextList.PBHL= "つよバハ ";
