@@ -33,6 +33,7 @@ Raid:
   <option value="uriel">Uriel</option>
   <option value="raph">Raphael</option>
   <option value="fourPrimarchs">Four Primarchs HL</option>
+  <option value="PBHLintoAkasha">Proto Bahamut HL into Akasha</option>
 </select>
 <br>
 Repeating:<input type="text" name="repeatQuest" id="repeatField">
@@ -41,37 +42,26 @@ Rank Cap: <input type="text" name="rankCap" id = "rankCapField" >
 <br>
 Rank Min: <input type="text" name="rankMin" id = "rankMinField">
 <br>  
-Other:
-<select name="extras" id="extrasField"> 
-  <option value="noExtras">None</option>
-  <option value="thPlease">Please Bring TH</option>
-  <option value="noDancer">No Dancer</option>
-  <option value="noChrys">No Chrysaor</option>
-  <option value="noLeech">Don't Leech</option>
-  <option value="weakHost">Weak Host</option>
-  <option value="mvpFree">MVP Free (Racing OK)</option>
-  <option value="exPara">Bringing Extended Para</option>
-  <option value="thor70">Using Thor at 70%</option>
-  <option value="thor30">Using Thor at 30%</option>
-  <option value="thor10">Using Thor at 10%</option>
-</select>
-<br>Other 2:
-<select name="extras2" id="extrasField2"> 
-  <option value="noExtras">None</option>
-  <option value="thPlease">Please Bring TH</option>
-  <option value="noDancer">No Dancer</option>
-  <option value="noChrys">No Chrysaor</option>
-  <option value="noLeech">Don't Leech</option>
-  <option value="weakHost">Weak Host</option>
-  <option value="mvpFree">MVP Free (Racing OK)</option>
-  <option value="exPara">Bringing Extended Para</option>
-  <option value="thor70">Using Thor at 70%</option>
-  <option value="thor30">Using Thor at 30%</option>
-  <option value="thor10">Using Thor at 10%</option>
-</select>
-<br> 
+Rank Max: <input type="text" name="rankMax" id = "rankMaxField">
+<br>  
+<div class="bloc-header">
+  Other:
+  <select class="bloc" multiple name="extras" id="extrasField"> 
+    <option value="noExtras">None</option>
+    <option value="thPlease">Please Bring TH</option>
+    <option value="noDancer">No Dancer</option>
+    <option value="noChrys">No Chrysaor</option>
+    <option value="noLeech">Don't Leech</option>
+    <option value="weakHost">Weak Host</option>
+    <option value="mvpFree">MVP Free (Racing OK)</option>
+    <option value="exPara">Bringing Extended Para</option>
+    <option value="thor70">Using Thor at 70%</option>
+    <option value="thor30">Using Thor at 30%</option>
+    <option value="thor10">Using Thor at 10%</option>
+  </select>
+</div>
 <button type="button" onclick="generate()">Generate</button>
-<Br>
+<br>
 <br>
 Room Title: 
 <input id="generatedResult" value="Your code here">

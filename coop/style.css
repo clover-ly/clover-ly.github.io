@@ -16,6 +16,23 @@ select {
   float:right;
 }
 
+.bloc-header {
+  margin-bottom: 200px;
+}
+
+.bloc {
+  height: 200px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  border: solid grey 1px;
+}
+
+.bloc select {
+  padding: 10px;
+  margin: -5px -20px -5px -5px;
+}
+
 button {
     padding-left:.8em;
     padding-right:.8em;

@@ -27,6 +27,7 @@ function generate() {
   raidTextList.uriel= "ウリエル ";
   raidTextList.raph= "ラファ ";
   raidTextList.fourPrimarchs= "四大天司HL ";
+  raidTextList.PBHLintoAkasha="つよばは→アーカーシャ";
 
   
   //get the raid choice from the form. thank u stackoverflow
@@ -60,6 +61,14 @@ function generate() {
     var rankMinNumber = rankMinNumber + "↑ ";
     result = result + rankMinNumber;
     }
+
+  // rank max. no I don't get it clouhai
+  if(document.getElementById('rankMaxField').value.length != 0)
+  {
+  var rankMaxNumber = document.getElementById('rankMaxField').value;
+  var rankMaxNumber = rankMaxNumber + "↓ ";
+  result = result + rankMaxNumber;
+  }
   
   //extras, same mechanic as raid name
   var extrasList = new Object();
@@ -76,28 +85,18 @@ function generate() {
   extrasList.mvpFree = "M自由" ;
   extrasList.thPlease = "トレハン募集 ";
   
-  var temp2 = document.getElementById("extrasField");
-  var extrasSelection = temp2.options[temp2.selectedIndex].value;
-  
-  var extrasText = extrasList[extrasSelection];
-  if (extrasText != "none"){
-    var result = result+extrasText;
+  var extras = document.getElementById("extrasField");
+  var selectedExtras = getSelectValues(extras);
+  for (var selection of selectedExtras) {
+    var extrasText = extrasList[selection];
+    if (extrasText != "none"){
+      var result = result+extrasText;
+    }
   }
 
-  //he posted it again the absolute madman
-  
-  var temp3 = document.getElementById("extrasField2");
-  var extras2Selection = temp3.options[temp3.selectedIndex].value;
-  
-  var extras2Text = extrasList[extras2Selection];
-  if (extras2Text != "none"){
-    var result = result+extras2Text;
-  }
-  
-  
-  
-  
-  
+
+  //bad chloe, no code duplications! 
+
   //take everything and stick it together, spit it out
   document.getElementById("generatedResult").value = result;
 }
@@ -107,4 +106,19 @@ function copyTextFunction() {
     document.getElementById("generatedResult").select();
     document.execCommand('copy');
     document.getElementById("copyConfirm").innerHTML = "Copied!";
+}
+
+function getSelectValues(select) {
+  var result = [];
+  var options = select && select.options;
+  var opt;
+
+  for (var i=0, iLen=options.length; i<iLen; i++) {
+    opt = options[i];
+
+    if (opt.selected) {
+      result.push(opt.value || opt.text);
+    }
+  }
+  return result;
 }
