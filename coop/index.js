@@ -27,6 +27,7 @@ function generate() {
   raidTextList.uriel= "ウリエル ";
   raidTextList.raph= "ラファ ";
   raidTextList.fourPrimarchs= "四大天司HL ";
+  raidTextList.PBHLintoAkasha="つよばは→アーカーシャ";
 
   
   //get the raid choice from the form. thank u stackoverflow
