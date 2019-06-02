@@ -60,6 +60,14 @@ function generate() {
     var rankMinNumber = rankMinNumber + "↑ ";
     result = result + rankMinNumber;
     }
+
+  // rank max. no I don't get it clouhai
+  if(document.getElementById('rankMaxField').value.length != 0)
+  {
+  var rankMaxNumber = document.getElementById('rankMaxField').value;
+  var rankMaxNumber = rankMaxNumber + "↓ ";
+  result = result + rankMaxNumber;
+  }
   
   //extras, same mechanic as raid name
   var extrasList = new Object();
