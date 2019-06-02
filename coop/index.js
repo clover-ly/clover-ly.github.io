@@ -46,13 +46,6 @@ function generate() {
     result = result + repeatNumber;
     }
   
-  //if theres anything in rank cap, grab it and format
-  if(document.getElementById('rankCapField').value.length != 0)
-    {
-    var rankCapNumber = document.getElementById('rankCapField').value;
-    var rankCapNumber = rankCapNumber + "↓ ";
-    result = result + rankCapNumber;
-    }
   
   // rank min. u get the gist here no?
   if(document.getElementById('rankMinField').value.length != 0)
