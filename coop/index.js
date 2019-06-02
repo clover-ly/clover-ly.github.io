@@ -22,6 +22,11 @@ function generate() {
   raidTextList.HLQL= "黄龍・黒麒麟HL";
   raidTextList.grande= "グランデ ";
   raidTextList.aka= "アーカーシャ ";
+  raidTextList.mika= "ミカ ";
+  raidTextList.gabu= "ガブ ";
+  raidTextList.uriel= "ウリエル ";
+  raidTextList.raph= "ラファ ";
+  raidTextList.fourPrimarchs= "四大天司HL ";
 
   
   //get the raid choice from the form. thank u stackoverflow
