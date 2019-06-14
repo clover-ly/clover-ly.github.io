@@ -1,6 +1,15 @@
 //by chloe
 //cloverly#2544
 
+function popupclose() {
+  var x = document.getElementById("howtotrain");
+    x.style.display = "none";
+}
+
+function popupopen() {
+  var x = document.getElementById("howtotrain");
+    x.style.display = "block";
+}
 function generate() {
   var result = "";
   //assigning the raid names
@@ -115,3 +124,4 @@ function getSelectValues(select) {
   }
   return result;
 }
+
