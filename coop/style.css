@@ -46,3 +46,25 @@ button {
 
     top: 0px;
 }
+
+#howtotrain {
+  width: 700px;
+  outline:1px solid black;
+  padding:10px;
+  padding-bottom: 30px;
+  left: 50%;
+  margin-left: -350px;
+  position: fixed;
+  top:30px;
+  background:white;
+  display:none;
+  transition: display 2s;
+}
+
+h3 {
+  margin-bottom:7px;
+}
+
+#popupopen {
+  text-decoration: underline
+}
