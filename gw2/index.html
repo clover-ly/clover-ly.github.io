@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="index.js"></script>
+  <title>GW Goal Calculator</title>
+</head>
+
+  <body>
+
+<div id="header">
+  <b>everybody's gbf toolbox<br></b>
+  <div id="navwrap" style="margin-left:-.5em;">
+  <a href="https://clover-ly.github.com" class="header">gw time efficiency calc</a>| 
+  <a href="https://clover-ly.github.com/gw2" class="headerselect">gw goal efficiency calc</a> | 
+  <a href="https://clover-ly.github.com/coop" class="header">coop room name generator</a>
+    
+  </div>
+</div>
+
+<h2>GW Goal Efficiency Calculator</h2>
+<div style="width: 750px;margin-bottom:30px;">
+<b>How To Use</b><br> This calculator will give you information on what it will take in time and resources to meet your GW goals.<br> It is only as accurate as your reported average time; use a timer and record yourself from 'start' to 'repeat quest'
+for best results. You can adjust honors to account for sharing raids with someone else; however <b>token count assumes host and MVP.</b> Do your best! Meat is assumed at 3 per ex, 4 per ex+; If these numbers are wrong please bully my crew captain. <b>Meat calculation is gain rate for ex/ex+ and consumption for NMs. </b>You can leave time blank if you aren't interested.<br><br>If you are looking to calculate general time efficiency, use <a href="clover-ly.github.io">this tool.</a></div>
+
+<h3>Input:</h3>
+
+<div id="radiowrapper">
+ <b> Goal: </b><br>
+<input type="radio" name="goalRadio" id="goalTypeHonors" value=" Honors" onClick="changeDisplayGoal('Honors')"checked> Honors<br>
+<input type="radio" name="goalRadio" id="goalTypeTokens" value=" Tokens" onClick="changeDisplayGoal('Tokens')"> Tokens<br>
+<input type="radio" name="goalRadio" id="goaltypeMeats" value=" Meats" onClick="changeDisplayGoal('Meats')"> Meat<br><br>
+  <input type="text" id="goalNumber" value="0" class="medwidthinput"> <span id="z">Honors </span>
+</div>
+
+<div id="checkwrapper">
+  <b>For:</b><br>
+  <input type="checkbox" name="exCalc" id="exCalcCheck" value="ex" onclick="hideDataCard('extremeDataCard')" checked>Extreme<br>
+  <input type="checkbox" name="expCalc" value="exp" onclick="hideDataCard('expDataCard')" id="expCalcCheck" checked>Extreme+<br>
+  <input type="checkbox" name="nm90Calc" value="nm90" onclick="hideDataCard('nm90DataCard')" id="nm90CalcCheck">Nightmare 90<br>
+  <input type="checkbox" name="nm95Calc" value="nm95" onclick="hideDataCard('nm95DataCard')" id="nm95CalcCheck">Nightmare 95<br>
+  <input type="checkbox" name="nm100Calc" value="nm100" onclick="hideDataCard('nm100DataCard')" id="nm100CalcCheck">Nightmare 100<br>
+</div>
+
+<br>
+<div id="extremeDataCard" class="fightDataCard" extreme <br>
+  <b>Extreme:</b><br><br>
+  <input type="text" class="medwidthinput" id="exHonorsInput" value="51000"> honors<br>
+  <input type="text" style="width:40px;" id="exTimeInputMin" value="0"> minutes
+
+  <input type="text" style="width:40px;" id="exTimeInputSec" value="0"> seconds
+</div>
+
+<div id="expDataCard" class="fightDataCard" extreme <br>
+  <b>Extreme+:</b><br><br>
+  <input type="text" id="expHonorsInput" class="medwidthinput"value="72000"> honors<br>
+
+  <input type="text" style="width:40px;" id="expTimeInputMin" value="0"> minutes
+
+  <input type="text" style="width:40px;" id="expTimeInputSec" value="0"> seconds
+</div>
+
+<div id="nm90DataCard" class="fightDataCard" style="display:none;">
+  <b>Nightmare 90:</b><br><br>
+  <input type="text" id="nm90HonorsInput" class="medwidthinput" value="260000"> honors<br>
+  <input type="text" style="width:40px;" id="nm90TimeInputMin" value="0"> minutes
+
+  <input type="text" style="width:40px;" id="nm90TimeInputSec" value="0"> seconds
+</div>
+
+<div id="nm95DataCard" class="fightDataCard" style="display:none">
+  <b>Nightmare 95:</b><br><br>
+  <input type="text" id="nm95HonorsInput" class="medwidthinput" value="910000"> honors<br>
+  <input type="text" style="width:40px;" id="nm95TimeInputMin" value="0"> minutes
+
+  <input type="text" style="width:40px;" id="nm95TimeInputSec" value="0"> seconds
+</div>
+<div id="nm100DataCard" class="fightDataCard" style="display:none;">
+  <b>Nightmare 100:</b><br><br>
+  <input type="text" id="nm100HonorsInput" class="medwidthinput" value="2650000"> honors<br>
+  <input type="text" style="width:40px;" id="nm100TimeInputMin" value="0"> minutes
+
+  <input type="text" style="width:40px;" id="nm100TimeInputSec" value="0"> seconds
+</div>
+
+<br><br>
+<button onclick="calculate()">Calculate</button>
+
+<br>
+<Br><br> <h3>Report:</h3><br> To reach your goal of: <span id="reportGoalDisplay">0 </span>
+<span id="reportGoalTypeDisplay">honors:</span><br><br>
+
+<div id="reportEx" class="reportBox">
+  <b>Extreme:</b><br><br>
+  <span id="exFightCountDisplay">00</span> fights<br>
+  <span id="exTimeDisplay">00:00</span> min<br>
+  <span id="exHonorsDisplay">00</span> honors<br>
+  <span id="exTokenDisplay">00</span> tokens<br>
+  <span id="exMeatsDisplay">00</span> meats<br>
+  <span id="exAPDisplay">00</span> AP<br> 
+</div>
+
+<div id="reportExp" class="reportBox">
+  <b>Extreme+: <br></b><br>
+  <span id="expFightCountDisplay">00</span> fights<br>
+  <span id="expTimeDisplay">00:00</span> min<br>
+  <span id="expHonorsDisplay">00</span> honors<br>
+  <span id="expTokenDisplay">00</span> tokens<br>
+  <span id="expMeatsDisplay">00</span> meats<br>
+  <span id="expAPDisplay">00</span> AP<br> 
+</div>
+<div id="reportnm90" class="reportBox" style="display:none;">
+  <b>Nightmare 90: <br></b><br>
+  <span id="nm90FightCountDisplay">00</span> fights<br>
+  <span id="nm90TimeDisplay">00:00</span> min<br>
+  <span id="nm90HonorsDisplay">00</span> honors<br>
+  <span id="nm90TokenDisplay">00</span> tokens<br>
+  <span id="nm90MeatsDisplay">00</span> meats<br>
+  <span id="nm90APDisplay">00</span> AP<br>
+</div>
+
+<div id="reportnm95" class="reportBox" style="display:none;">
+  <b>Nightmare 95: <br></b><br>
+  <span id="nm95FightCountDisplay">00</span> fights<br>
+  <span id="nm95TimeDisplay">00:00</span> min<br>
+  <span id="nm95HonorsDisplay">00</span> honors<br>
+  <span id="nm95TokenDisplay">00</span> tokens<br>
+  <span id="nm95MeatsDisplay">00</span> meats<br>
+  <span id="nm95APDisplay">00</span> AP<br>
+</div>
+
+<div id="reportnm100" class="reportBox" style="display:none;">
+  <b>Nightmare 100: <br></b><br>
+  <span id="nm100FightCountDisplay">00</span> fights<br>
+  <span id="nm100TimeDisplay">00:00</span> min<br>
+  <span id="nm100HonorsDisplay">00</span> honors<br>
+  <span id="nm100TokenDisplay">00</span> tokens<br>
+  <span id="nm100MeatsDisplay">00</span> meats<br>
+  <span id="nm100APDisplay">00</span> AP<br>
+</div>
+
+
+  </body>
+</html>
