@@ -4,6 +4,30 @@ body {
 .minbox {
   width:40px;
 }
+#header {
+  width:100;
+  min-height:40px;
+  background:#12f;
+  margin:-8px;
+  color:white;
+  padding:5px;
+  box-sizing: border-box;
+}
+
+a.headerselect {
+  color:white;
+  text-decoration:none;
+  border-bottom:3px solid white;
+  font-weight:bold;
+}
+
+a.header {
+  display:inline-block;
+  padding:.5em;
+  margin-left:0em;
+  color:white;
+}
+
 
 #ex {
   display:inline-block;
