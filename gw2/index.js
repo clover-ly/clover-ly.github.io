@@ -114,8 +114,8 @@ function calculate() {
       var gainPerNm100 = 148;
       break;
     case " Meats":
-      var gainPerEx = 1;
-      var gainPerExp = 2;
+      var gainPerEx = 3;
+      var gainPerExp = 4;
       var gainPerNm90 = 5;
       var gainPerNm95 = 10;
       var gainPerNm100 = 20;
