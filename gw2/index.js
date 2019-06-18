@@ -153,7 +153,7 @@ function calculate() {
   var totalGoalNm100ClearTime = totalGoalNm100*nm100ClearTime;
   
   var totalGoalExMeat = totalGoalEx*exMeats;
-  var totalGoalExpMeat = totalGoalExp*exMeats;
+  var totalGoalExpMeat = totalGoalExp*expMeats;
   var totalGoalNm90Meat = totalGoalNm90*nm90Meats;
   var totalGoalNm95Meat = totalGoalNm95*nm95Meats;
   var totalGoalNm100Meat = totalGoalNm100*nm100Meats;
