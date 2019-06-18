@@ -1,4 +1,3 @@
-
 // shows and hides raid data when boxes are checked. raid parameter is which div to hide. works for anything
 function hideDataCard(raid) {
   var x = document.getElementById(raid);
@@ -112,7 +111,7 @@ function calculate() {
       var gainPerExp = 66;
       var gainPerNm90 = 83;
       var gainPerNm95 = 111;
-      var gainPerNm95 = 148;
+      var gainPerNm100 = 148;
       break;
     case " Meats":
       var gainPerEx = 1;
@@ -164,43 +163,28 @@ function calculate() {
   var totalGoalNm90Tokens = totalGoalNm90*nm90Tokens;
   var totalGoalNm95Tokens = totalGoalNm95*nm95Tokens;
   var totalGoalNm100Tokens = totalGoalNm100*nm100Tokens;
-  
+   
   //total time in seconds to mins and secs for readability
-  //shoutout to my boy stackoverflow for the formatting funciton
-  var exMinutes = Math.floor(totalGoalExClearTime / 60);
-  var exSeconds = totalGoalExClearTime - exMinutes * 60;
-  function str_pad_left(string,pad,length) { 
-    return (new Array(length+1).join(pad)+string).slice(-length);
-  }
-  var exFinalTime = str_pad_left(exMinutes,'0',2)+':'+str_pad_left(exSeconds,'0',2);
 
-  var expMinutes = Math.floor(totalGoalExpClearTime / 60);
-  var expSeconds = totalGoalExpClearTime - expMinutes * 60;
-  function str_pad_left(string,pad,length) { 
-  return (new Array(length+1).join(pad)+string).slice(-length);
-  }
-  var expFinalTime = str_pad_left(expMinutes,'0',2)+':'+str_pad_left(expSeconds,'0',2);
+  var exTimeString = new Date(null);
+  exTimeString.setSeconds(totalGoalExClearTime); 
+  var exFinalTime = exTimeString.toISOString().substr(11, 8);
+
+  var expTimeString = new Date(null);
+  expTimeString.setSeconds(totalGoalExpClearTime); 
+  var expFinalTime = expTimeString.toISOString().substr(11, 8);
   
-  var nm90Minutes = Math.floor(totalGoalNm90ClearTime / 60);
-  var nm90Seconds = totalGoalNm90ClearTime  - nm90Minutes * 60;
-    function str_pad_left(string,pad,length) { 
-    return (new Array(length+1).join(pad)+string).slice(-length);
-  }
-  var nm90FinalTime = str_pad_left(nm90Minutes,'0',2)+':'+str_pad_left(nm90Seconds,'0',2);
+  var nm90TimeString = new Date(null);
+  nm90TimeString.setSeconds(totalGoalNm90ClearTime); 
+  var nm90FinalTime = nm90TimeString.toISOString().substr(11, 8);
   
-  var nm95Minutes = Math.floor(totalGoalNm95ClearTime / 60);
-  var nm95Seconds = totalGoalNm95ClearTime  - nm95Minutes * 60;
-  function str_pad_left(string,pad,length) { 
-    return (new Array(length+1).join(pad)+string).slice(-length);
-  }
-  var nm95FinalTime = str_pad_left(nm95Minutes,'0',2)+':'+str_pad_left(nm95Seconds,'0',2);
+  var nm95TimeString = new Date(null);
+  nm95TimeString.setSeconds(totalGoalNm95ClearTime); 
+  var nm95FinalTime = nm95TimeString.toISOString().substr(11, 8);
   
-  var nm100Minutes = Math.floor(totalGoalNm100ClearTime / 60);
-  var nm100Seconds = totalGoalNm100ClearTime  - nm100Minutes * 60;
-  function str_pad_left(string,pad,length) { 
-    return (new Array(length+1).join(pad)+string).slice(-length);
-  }
-  var nm100FinalTime = str_pad_left(nm100Minutes,'0',2)+':'+str_pad_left(nm100Seconds,'0',2);
+  var nm100TimeString = new Date(null);
+  nm100TimeString.setSeconds(totalGoalNm100ClearTime); 
+  var nm100FinalTime = nm100TimeString.toISOString().substr(11, 8);
   
   
 
@@ -263,4 +247,3 @@ document.getElementById("reportnm90").style.display = "inline-block";
   document.getElementById("reportnm100").style.display = "none";  }
 
 }
-
