@@ -41,7 +41,7 @@ Your room will slowly be pushed to the back of the room board if you do not 'ref
 Open the room settings (the 'i' on the right) once it has been created and toggle between 'hide' and 'display' in the room board settings to boost your train to the top of the list. 
   </div>
 Raid: 
-<select name="raid" id="raid">
+<select name="raid" id="raid" onchange="generate()">
   <option value="europa">Europa</option>
   <option value="shiva">Shiva</option>
   <option value="grimnir">Grimnir</option>
@@ -67,15 +67,15 @@ Raid:
   <option value="PBHLintoAkasha">Proto Bahamut HL into Akasha</option>
 </select>
 <br>
-Repeating:<input type="text" name="repeatQuest" id="repeatField">
+Repeating:<input type="text" name="repeatQuest" id="repeatField" oninput="generate()">
 <Br>
-Rank Min: <input type="text" name="rankMin" id = "rankMinField">
+Rank Min: <input type="text" name="rankMin" id = "rankMinField" oninput="generate()">
 <br>  
-Rank Max: <input type="text" name="rankMax" id = "rankMaxField">
+Rank Max: <input type="text" name="rankMax" id = "rankMaxField" oninput="generate()">
 <br>  
 <div class="bloc-header">
   Other: (ctrl+click for multiple)<br>
-  <select class="bloc" multiple name="extras" id="extrasField"> 
+  <select class="bloc" multiple name="extras" id="extrasField" onchange="generate()"> 
     <option value="noExtras">None</option>
     <option value="thPlease">Please Bring TH</option>
     <option value="noDancer">No Dancer</option>
@@ -89,8 +89,6 @@ Rank Max: <input type="text" name="rankMax" id = "rankMaxField">
     <option value="thor10">Using Thor at 10%</option>
   </select>
 </div>
-<button type="button" onclick="generate()">Generate</button>
-<br>
 <br>
 Room Title: 
 <input id="generatedResult" value="Your code here">
