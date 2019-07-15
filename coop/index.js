@@ -1,6 +1,16 @@
 //by chloe
 //cloverly#2544
 
+var imgArr = ["https://gbf.wiki/images/b/be/Stamp133.png","https://gbf.wiki/images/f/fd/Stamp242.png","https://gbf.wiki/images/7/71/Stamp54.png","https://gbf.wiki/images/b/bd/Stamp169.png","https://gbf.wiki/images/f/fc/Stamp62.png","https://gbf.wiki/images/c/cd/Stamp94.png","https://gbf.wiki/images/d/d3/Stamp177.png","https://gbf.wiki/images/c/cd/Stamp94.png"];
+
+function displayImg(){
+    var num = Math.floor(Math.random() * (imgArr.length));
+    document.sticker.src=imgArr[num];
+}
+
+
+displayImg();
+
 function popupclose() {
   var x = document.getElementById("howtotrain");
     x.style.display = "none";
@@ -125,3 +135,21 @@ function getSelectValues(select) {
   return result;
 }
 
+function material(x, y) {
+ var labelSelect = document.getElementById(x);
+                                           var inputSelect = document.getElementById(y);
+                                     
+  
+ labelSelect.style.color = "blue";
+  inputSelect.style.borderBottom= "2px solid blue";
+
+  }
+
+function material2(x, y) {
+ //this one undoes it
+   var labelSelect = document.getElementById(x);
+                                           var inputSelect = document.getElementById(y);
+  
+  labelSelect.style.color = "#555";
+   inputSelect.style.borderBottom= "2px solid #ccc";
+}
