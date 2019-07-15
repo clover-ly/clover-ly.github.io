@@ -31,7 +31,7 @@ function displayHistory() {
   const target = document.getElementById("history");
 
   for (item of history) {
-    const node = document.createTextNode(`<span>${item}</spany`);
+    const node = document.createTextNode(item);
     target.appendChild(node);
   }
 }
