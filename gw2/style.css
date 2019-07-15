@@ -1,25 +1,140 @@
-#header {
-  width:100;
-  min-height:40px;
-  background:#12f;
-  margin:-8px;
-  color:white;
-  padding:5px;
-  box-sizing: border-box;
+body {
+  font-family:'Roboto',sans-serif;
+  background: #eee;
+  color:#333;
+  font-size:11pt;
 }
 
-a.headerselect {
-  color:white;
-  text-decoration:none;
-  border-bottom:3px solid white;
-  font-weight:bold;
+.card {
+  display:inline-block;
+  margin:.3em;
+  overflow:hidden;
+  margin-bottom:8px;
+  min-width:370px;
+  background:#fff;
+  border1:1px solid #bbb;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.styled {
+  border:none;
+  border-bottom:2px solid #ccc;
+  transition:.2s ease all;
+}
+
+select {
+  background:#eee;
+  border:none;
+  border-bottom: 2px solid #ccc;
+  color:#333;
+}
+
+#columnwrap {
+display:flex;
+}
+
+#inputcolumn {
+  
+}
+
+#cardcolumn {
+  max-width:900px;
+}
+
+.shortin {
+  width:50px;
+}
+
+label {
+  font-size:8pt;
+  display:block;
+  transition:.2s ease all;
+  position:absolute;
+  color: #555;
+  margin-top:-6ex;
+}
+
+.labelwrap {
+  position:relative;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+
+.cardhead {
+  display:block;
+  background:#2530ba;
+  color:rgba(255,255,255,.85);
+  padding-left:.7em;
+  padding-top:5px;
+  padding-bottom:5px;
+}
+
+.cardcontent {
+    padding:.7em;
+    
+}
+
+h4 {
+  margin-top:0em;
+  margin-bottom:.2em;
+  color:#2530ba;
+  border-bottom:1px solid grey;
+}
+
+.inputtotalwrap {
+  display:inline-block;
+  margin-top:2ex;
+}
+
+.reportwrap {
+  display:inline-block;
+   border-left:1px solid #ddd;
+    margin-left:1em;
+  padding-left:1em;
+    position:relative;
+  top:-1ex;
+ 
+}
+
+#header {
+  min-height:40px;
+  background:#2530ba;
+  margin:-8px;
+  color:rgba(255,255,255,.85);
+  padding:5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+#navwrap {
+  display:flex;
+  justify-content:flex-end;
+  align-items:flex-end;
+}
+.navlink {
+  max-width:100px;
+}
+
+#navoverwrap {
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
 }
 
 a.header {
   display:inline-block;
-  padding:.5em;
   margin-left:0em;
-  color:white;
+  color: rgba(255,255,255,.85);
+  font-size:10pt;
+  text-decoration:none;
+}
+
+#navtitle{
+  display:flex;
+  align-items:center;
 }
 
 .fightDataCard {
@@ -32,13 +147,19 @@ a.header {
 }
 
 button {
-  background: #1122ff;
-  padding:.4em;
-  color:white;
-  border:none;
-  border-radius:2px;
-  font-size:1em;
-  top: 0px;
+  padding:10px 16px;
+  font-family:'Roboto',sans-serif;
+  font-weight:100;
+  background-color:#2530ba;
+  border:0px;
+  color:#fff;
+  font-size:14px;
+  min-width:64px;
+}
+
+button:hover {
+  background-color:#7981e0;
+  box-shadow:0px 5px 5px -5px rgba(0,0,0,0.5);
 }
 
 h3 {
@@ -53,10 +174,6 @@ h3 {
   margin-bottom:8px;
   display:inline-block;
 }
-body{
-  font-family:sans-serif;
-}
-
 #radiowrapper {
   outline:1px soild black;
   display: inline-block;
