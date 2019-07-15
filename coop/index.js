@@ -41,7 +41,7 @@ function displayHistory() {
 
     const textNode = document.createElement("input");
     textNode.setAttribute("id", id);
-    textNode.innerText = item;
+    textNode.value = item;
     textNode.style = "color:#aaa;";
 
     const buttonNode = document.createElement("button");
