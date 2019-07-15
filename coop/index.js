@@ -9,7 +9,6 @@ function displayImg(){
 }
 
 
-displayImg();
 
 function popupclose() {
   var x = document.getElementById("howtotrain");
