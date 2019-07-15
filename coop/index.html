@@ -3,128 +3,141 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
-<script type="text/javascript" src="index.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="index.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <title>Coop Raid Room Name Generator</title>
 </head>
 
-  <body onload="initialize();">
- <div id="header">
+<body onload="initialize();">
+  <div id="header">
 
 
-    <div id="navoverwrap"> 
-    <div id="navtitle">
-        <img src="https://gbf.wiki/images/b/be/Stamp133.png" name="sticker" style="width:3em"><span style="margin-left:10px;"><b>EVERYBODY'S GBF TOOLBOX</b></span>
+    <div id="navoverwrap">
+      <div id="navtitle">
+        <img src="https://gbf.wiki/images/b/be/Stamp133.png" name="sticker" style="width:3em"><span
+          style="margin-left:10px;"><b>EVERYBODY'S GBF TOOLBOX</b></span>
+      </div>
+
+      <div id="navwrap">
+        <div class="navlink">
+          <a href="https://clover-ly.github.com" class="header">gw time efficiency calc </a>
+        </div>
+        <div class="navlink">
+          <a href="https://clover-ly.github.com/gw2" class="header">gw goal efficiency calc </a>
+        </div>
+        <div class="navlink">
+          <a href="https://clover-ly.github.com/coop" class="header" style="font-weight:bold;">coop room name
+            generator</a>
+        </div>
+      </div>
     </div>
-    
-    <div id="navwrap">
-      <div class="navlink">
-      <a href="https://clover-ly.github.com" class="header">gw time efficiency calc </a>
-      </div>
-      <div class="navlink">
-      <a href="https://clover-ly.github.com/gw2" class="header" >gw goal efficiency calc </a>
-      </div>
-      <div class="navlink">
-      <a href="https://clover-ly.github.com/coop" class="header" style="font-weight:bold;">coop room name generator</a>
-      </div>
-      </div>
-      </div>
-    
-    
-    
+
+
+
   </div>
-</div><br>
-<div class="wrapper">  
-<h2>Coop Raid Room Title Generator </h2>
-<b><div id="popupopen"onclick="popupopen()">How do I host a train?</b></div><br>
-<div id="howtotrain">
-  <img id="popupclose" src="https://www.bing.com/th?id=OIP.vC3MKooCwO5DlZHHgqcGIwAAAA&pid=Api&rs=1&p=0" style="width:1em;float:right;" onclick="popupclose()">
-  <h3>Navigate to:</h3>
-Coop > Raid > Create a Room. <br>
-For low level raids (minimum join rank < 101), stay on 'Standard'. <br>
-For HL (minimum join rank 101+), select 'Impossible'.
+  </div><br>
+  <div class="wrapper">
+    <h2>Coop Raid Room Title Generator </h2>
+    <b>
+      <div id="popupopen" onclick="popupopen()">How do I host a train?
+    </b>
+  </div><br>
+  <div id="howtotrain">
+    <img id="popupclose" src="https://www.bing.com/th?id=OIP.vC3MKooCwO5DlZHHgqcGIwAAAA&pid=Api&rs=1&p=0"
+      style="width:1em;float:right;" onclick="popupclose()">
+    <h3>Navigate to:</h3>
+    Coop > Raid > Create a Room. <br>
+    For low level raids (minimum join rank < 101), stay on 'Standard' . <br>
+      For HL (minimum join rank 101+), select 'Impossible'.
 
-                                              <br><br>
-  <h3>Options:</h3> 'Minimum Rank' and 'Player Type' can be left alone.<br>
-Set 'Repeating Quest Settings' to the amount of players you wish to have in your train.<br>
-Set 'Player Limit' to the maximum number of players that can join the type of raid you are hosting.<br>
-Generally you will want to leave 'Player Ready Check' off. <br>
-Set your message and posting accordingly.
-  
-  <br><br>
+      <br><br>
+      <h3>Options:</h3> 'Minimum Rank' and 'Player Type' can be left alone.<br>
+      Set 'Repeating Quest Settings' to the amount of players you wish to have in your train.<br>
+      Set 'Player Limit' to the maximum number of players that can join the type of raid you are hosting.<br>
+      Generally you will want to leave 'Player Ready Check' off. <br>
+      Set your message and posting accordingly.
 
-  <h3>Refreshing:</h3>
-Your room will slowly be pushed to the back of the room board if you do not 'refresh' it quickly.
-Open the room settings (the 'i' on the right) once it has been created and toggle between 'hide' and 'display' in the room board settings to boost your train to the top of the list. 
+      <br><br>
+
+      <h3>Refreshing:</h3>
+      Your room will slowly be pushed to the back of the room board if you do not 'refresh' it quickly.
+      Open the room settings (the 'i' on the right) once it has been created and toggle between 'hide' and 'display' in
+      the room board settings to boost your train to the top of the list.
   </div>
   <div id="contentwrap">
-  <div id="optionswrap">
-    <label id="raidlabel">Raid: </label>
-<select name="raid" id="raid" onchange="generate()">
-  <option value="europa">Europa</option>
-  <option value="shiva">Shiva</option>
-  <option value="grimnir">Grimnir</option>
-  <option value="alex">Alexiel</option>
-  <option value="metatron">Metatron</option>
-  <option value="avatar">Avatar</option>
-  <option value="PBN">Proto Bahamut Normal</option>
-  <option value="PBHL">Proto Bahamut HL</option>
-  <option value="UBN">Ultimate Bahamut Normal</option>
-  <option value="UBHL">Ultimate Bahamut HL</option>
-  <option value="luci">Lucilius Normal</option>
-  <option value="tiaM">Tiamat Malice</option> 
-  <option value="aka">Akasha</option>
-  <option value="HL">Huanglong</option>
-  <option value="qilin">Qilin</option>
-  <option value="HLQL">Huanglong/Qilin HL</option> 
-  <option value="grande">Grand Order</option>
-  <option value="mika">Michael</option>
-  <option value="gabu">Gabriel</option>
-  <option value="uriel">Uriel</option>
-  <option value="raph">Raphael</option>
-  <option value="fourPrimarchs">Four Primarchs HL</option>
-  <option value="PBHLintoAkasha">Proto Bahamut HL into Akasha</option>
-</select>
-<br>
-    
-<label id="repeatinglabel">Repeating:</label>
-    <input type="text" onfocus="material('repeatinglabel', 'repeatField')" onblur="material2('repeatinglabel', 'repeatField')" name="repeatQuest" id="repeatField" oninput="generate()">
-<Br>
-  
- <label id="rankminlabel"> Rank Min: </label><input type="text" name="rankMin" id = "rankMinField" oninput="generate()" onfocus="material('rankminlabel', 'rankMinField')" onblur="material2('rankminlabel', 'rankMinField')" >
-<br>  
-  <label id="rankmaxlabel">Rank Max: </label><input type="text" name="rankMax" id = "rankMaxField" oninput="generate()" onfocus="material('rankmaxlabel', 'rankMaxField')" onblur="material2('rankmaxlabel', 'rankMaxField')" >
-<br>  
-<div class="bloc-header">
-  <label id="extraslabel">Other: (ctrl+click for multiple)<br></label>
-  <select class="bloc" multiple name="extras" id="extrasField" onchange="generate()" > 
-    <option value="noExtras">None</option>
-    <option value="thPlease">Please Bring TH</option>
-    <option value="noDancer">No Dancer</option>
-    <option value="noChrys">No Chrysaor</option>
-    <option value="noLeech">Don't Leech</option>
-    <option value="weakHost">Weak Host</option>
-    <option value="mvpFree">MVP Free (Racing OK)</option>
-    <option value="exPara">Bringing Extended Para</option>
-    <option value="thor70">Using Thor at 70%</option>
-    <option value="thor30">Using Thor at 30%</option>
-    <option value="thor10">Using Thor at 10%</option>
-  </select>
-  </div>
-</div>
-<br>
+    <div id="optionswrap">
+      <label id="raidlabel">Raid: </label>
+      <select name="raid" id="raid" onchange="generate()">
+        <option value="europa">Europa</option>
+        <option value="shiva">Shiva</option>
+        <option value="grimnir">Grimnir</option>
+        <option value="alex">Alexiel</option>
+        <option value="metatron">Metatron</option>
+        <option value="avatar">Avatar</option>
+        <option value="PBN">Proto Bahamut Normal</option>
+        <option value="PBHL">Proto Bahamut HL</option>
+        <option value="UBN">Ultimate Bahamut Normal</option>
+        <option value="UBHL">Ultimate Bahamut HL</option>
+        <option value="luci">Lucilius Normal</option>
+        <option value="tiaM">Tiamat Malice</option>
+        <option value="aka">Akasha</option>
+        <option value="HL">Huanglong</option>
+        <option value="qilin">Qilin</option>
+        <option value="HLQL">Huanglong/Qilin HL</option>
+        <option value="grande">Grand Order</option>
+        <option value="mika">Michael</option>
+        <option value="gabu">Gabriel</option>
+        <option value="uriel">Uriel</option>
+        <option value="raph">Raphael</option>
+        <option value="fourPrimarchs">Four Primarchs HL</option>
+        <option value="PBHLintoAkasha">Proto Bahamut HL into Akasha</option>
+      </select>
+      <br>
+
+      <label id="repeatinglabel">Repeating:</label>
+      <input type="text" onfocus="material('repeatinglabel', 'repeatField')"
+        onblur="material2('repeatinglabel', 'repeatField')" name="repeatQuest" id="repeatField" oninput="generate()">
+      <Br>
+
+      <label id="rankminlabel"> Rank Min: </label><input type="text" name="rankMin" id="rankMinField"
+        oninput="generate()" onfocus="material('rankminlabel', 'rankMinField')"
+        onblur="material2('rankminlabel', 'rankMinField')">
+      <br>
+      <label id="rankmaxlabel">Rank Max: </label><input type="text" name="rankMax" id="rankMaxField"
+        oninput="generate()" onfocus="material('rankmaxlabel', 'rankMaxField')"
+        onblur="material2('rankmaxlabel', 'rankMaxField')">
+      <br>
+      <div class="bloc-header">
+        <label id="extraslabel">Other: (ctrl+click for multiple)<br></label>
+        <select class="bloc" multiple name="extras" id="extrasField" onchange="generate()">
+          <option value="noExtras">None</option>
+          <option value="thPlease">Please Bring TH</option>
+          <option value="noDancer">No Dancer</option>
+          <option value="noChrys">No Chrysaor</option>
+          <option value="noLeech">Don't Leech</option>
+          <option value="weakHost">Weak Host</option>
+          <option value="mvpFree">MVP Free (Racing OK)</option>
+          <option value="exPara">Bringing Extended Para</option>
+          <option value="thor70">Using Thor at 70%</option>
+          <option value="thor30">Using Thor at 30%</option>
+          <option value="thor10">Using Thor at 10%</option>
+        </select>
+      </div>
+    </div>
+    <br>
     <div id="outputwrap">
-Room Title: 
-<input id="generatedResult" style="color:#aaa;" value="Your code here">
-  
-<button id="copyButton" onclick="copyGenerated()">Copy</button>
-  <div id="copyConfirm"></div>
+      Room Title:
+      <input id="generatedResult" style="color:#aaa;" value="Your code here">
 
-  <div ><ul id="history"></ul></div>
-    </div>
+      <button id="copyButton" onclick="copyGenerated()">Copy</button>
+      <div id="copyConfirm"></div>
+
+      <div>
+        <ul id="history"></ul>
+      </div>
     </div>
   </div>
+  </div>
+</body>
 
-
-  </body>
 </html>
