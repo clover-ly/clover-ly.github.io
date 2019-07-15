@@ -65,6 +65,7 @@ function popupopen() {
   var x = document.getElementById("howtotrain");
   x.style.display = "block";
 }
+
 function generate() {
   var result = "";
   //assigning the raid names
@@ -206,17 +207,27 @@ function material2(x, y) {
 const generationHistoryCookieKey = "gen-history-max10";
 
 function readGenerationResultHistory() {
-  let history = readCookie(generationHistoryCookieKey) || "";
-  let items = history.split("+");
+  let history = readCookie(generationHistoryCookieKey);
 
+  if (!history || history === "") {
+    return [];
+  }
+
+  let items = history.split("+");
   return items;
 }
 
 function updateGenerationResultHistory(newGeneration) {
   let history = readCookie(generationHistoryCookieKey) || "";
   let items = history.split("+");
-  items = [newGeneration, ...items].slice(0, 10);
-  let newHistory = items.join("+");
+  const found = items.findIndex((value) => value === newGeneration);
+
+  if (found >= 0) {
+    items = [items[found], ...items.filter((_, id) => id !== found)];
+  } else {
+    items = [newGeneration, ...items];
+  }
+  let newHistory = items.slice(0, 10).join("+").slice(0, -1);
   writeCookie(generationHistoryCookieKey, newHistory);
 }
 
