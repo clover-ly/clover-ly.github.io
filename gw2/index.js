@@ -1,3 +1,14 @@
+var imgArr = ["https://gbf.wiki/images/b/be/Stamp133.png","https://gbf.wiki/images/f/fd/Stamp242.png","https://gbf.wiki/images/7/71/Stamp54.png","https://gbf.wiki/images/b/bd/Stamp169.png","https://gbf.wiki/images/f/fc/Stamp62.png","https://gbf.wiki/images/c/cd/Stamp94.png","https://gbf.wiki/images/d/d3/Stamp177.png","https://gbf.wiki/images/c/cd/Stamp94.png"];
+
+function displayImg(){
+    var num = Math.floor(Math.random() * (imgArr.length));
+    document.sticker.src=imgArr[num];
+}
+
+
+displayImg();
+
+
 // shows and hides raid data when boxes are checked. raid parameter is which div to hide. works for anything
 function hideDataCard(raid) {
   var x = document.getElementById(raid);
@@ -8,20 +19,17 @@ function hideDataCard(raid) {
   }
 }
 
-function changeDisplayGoal(a) {
-  //quick bit to change the text by the first input when the radios are clicked. 
-    var out = a;
-    document.getElementById('z').innerHTML = out;
-}
-
 function calculate() {
   //grabs the goal type and number from the top.
   var goalNumber = parseFloat(document.getElementById("goalNumber").value);
   document.getElementById("reportGoalDisplay").innerHTML = goalNumber;
 
-  var goalType = document.querySelector('input[name="goalRadio"]:checked')
-    .value;
+  //var goalType = document.querySelector('input[name="goalRadio"]:checked').value;
+  var st = document.getElementById("goalSelect");
+  var goalType = st.options[st.selectedIndex].value;
   document.getElementById("reportGoalTypeDisplay").innerHTML = goalType;
+  
+  
 
   //fight constants
   var exTokens = 56;
@@ -246,4 +254,23 @@ document.getElementById("reportnm90").style.display = "inline-block";
   document.getElementById("nm100APDisplay").innerHTML = totalGoalNm100AP;}else{
   document.getElementById("reportnm100").style.display = "none";  }
 
+}
+
+function material(x, y) {
+ var labelSelect = document.getElementById(x);
+                                           var inputSelect = document.getElementById(y);
+                                     
+  
+ labelSelect.style.color = "blue";
+  inputSelect.style.borderBottom= "2px solid blue";
+
+  }
+
+function material2(x, y) {
+ //this one undoes it
+   var labelSelect = document.getElementById(x);
+                                           var inputSelect = document.getElementById(y);
+  
+  labelSelect.style.color = "#aaa";
+   inputSelect.style.borderBottom= "2px solid #ccc";
 }
