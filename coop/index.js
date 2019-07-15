@@ -44,11 +44,8 @@ function displayHistory() {
     textNode.innerText = item;
 
     const buttonNode = document.createElement("button");
-    buttonNode.addEventListener("click", () => {
-      /* Get the text field */
-      document.getElementById(id).select();
-      document.execCommand("copy");
-    });
+    buttonNode.innerText = "Copy";
+    buttonNode.addEventListener("click", () => copyTextFunction(id));
 
     liNode.appendChild(textNode);
     liNode.appendChild(buttonNode);
@@ -154,11 +151,17 @@ function generate() {
   document.getElementById("generatedResult").value = result;
 }
 
-function copyTextFunction() {
+function copyGenerated() {
+  copyTextFunction(generatedResult, true);
+}
+
+function copyTextFunction(idOfElement, doConfirm) {
   /* Get the text field */
-  document.getElementById("generatedResult").select();
+  document.getElementById(idOfElement).select();
   document.execCommand("copy");
-  document.getElementById("copyConfirm").innerHTML = "Copied!";
+  if (doConfirm) {
+    document.getElementById("copyConfirm").innerHTML = "Copied!";
+  }
 
   // Update generation history
   let result = document.getElementById("generatedResult").value;
