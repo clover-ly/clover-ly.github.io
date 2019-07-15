@@ -216,7 +216,7 @@ function readGenerationResultHistory() {
 function updateGenerationResultHistory(newGeneration) {
   let history = readCookie(generationHistoryCookieKey) || "";
   let items = history.split("+");
-  const found = items.findIndex(newGeneration);
+  const found = items.findIndex((value) => value === newGeneration);
 
   if (found) {
     items = [items[found], ...items.filter((_, id) => id !== found)];
