@@ -65,6 +65,7 @@ function popupopen() {
   var x = document.getElementById("howtotrain");
   x.style.display = "block";
 }
+
 function generate() {
   var result = "";
   //assigning the raid names
@@ -215,7 +216,13 @@ function readGenerationResultHistory() {
 function updateGenerationResultHistory(newGeneration) {
   let history = readCookie(generationHistoryCookieKey) || "";
   let items = history.split("+");
-  items = [newGeneration, ...items].slice(0, 10);
+  const found = items.findIndex(newGeneration);
+
+  if (found) {
+    items[found] = newGeneration;
+  } else {
+    items = [newGeneration, ...items].slice(0, 10);
+  }
   let newHistory = items.join("+");
   writeCookie(generationHistoryCookieKey, newHistory);
 }
