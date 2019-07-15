@@ -30,6 +30,9 @@ function displayHistory() {
   const history = readGenerationResultHistory();
   const target = document.getElementById("history");
 
+  // Clear previous history
+  target.childNodes = [];
+
   for (item of history) {
     const node = document.createTextNode(item);
     target.appendChild(node);
@@ -141,6 +144,7 @@ function copyTextFunction() {
   // Update generation history
   let result = document.getElementById("generatedResult").value;
   updateGenerationResultHistory(result);
+  displayHistory();
 }
 
 function getSelectValues(select) {
