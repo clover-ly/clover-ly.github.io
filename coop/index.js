@@ -219,11 +219,11 @@ function updateGenerationResultHistory(newGeneration) {
   const found = items.findIndex(newGeneration);
 
   if (found) {
-    items = [items[found], ...items.filter((value, id) => id !== found)];
+    items = [items[found], ...items.filter((_, id) => id !== found)];
   } else {
-    items = [newGeneration, ...items].slice(0, 10);
+    items = [newGeneration, ...items];
   }
-  let newHistory = items.join("+");
+  let newHistory = items.slice(0, 10).join("+");
   writeCookie(generationHistoryCookieKey, newHistory);
 }
 
