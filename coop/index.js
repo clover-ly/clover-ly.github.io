@@ -207,9 +207,13 @@ function material2(x, y) {
 const generationHistoryCookieKey = "gen-history-max10";
 
 function readGenerationResultHistory() {
-  let history = readCookie(generationHistoryCookieKey) || "";
-  let items = history.split("+");
+  let history = readCookie(generationHistoryCookieKey);
 
+  if (!history || history === "") {
+    return [];
+  }
+
+  let items = history.split("+");
   return items;
 }
 
