@@ -115,8 +115,6 @@ function generate() {
 
   //take everything and stick it together, spit it out
   document.getElementById("generatedResult").value = result;
-  updateGenerationResultHistory(result);
-  readGenerationResultHistory();
 }
 
 function copyTextFunction() {
@@ -124,6 +122,10 @@ function copyTextFunction() {
   document.getElementById("generatedResult").select();
   document.execCommand("copy");
   document.getElementById("copyConfirm").innerHTML = "Copied!";
+
+  // Update generation history
+  let result = document.getElementById("generatedResult").value;
+  updateGenerationResultHistory(result);
 }
 
 function getSelectValues(select) {
