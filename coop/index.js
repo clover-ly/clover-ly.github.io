@@ -42,7 +42,7 @@ function displayHistory() {
     const textNode = document.createElement("input");
     textNode.setAttribute("id", id);
     textNode.value = item;
-    textNode.style = "color:#aaa;";
+    textNode.style = "border:none;padding-top:.5em;padding-bottom:.5em;margin:0px;border-top:1px solid #bbb;color:#333;";
 
     const buttonNode = document.createElement("button");
     buttonNode.innerText = "Copy";
@@ -157,7 +157,25 @@ function copyGenerated() {
   copyTextFunction("generatedResult", true);
 }
 
+function saveGenerated() {
+  saveTextFunction("generatedResult", true);
+}
+
 function copyTextFunction(idOfElement, doConfirm) {
+  /* Get the text field */
+  document.getElementById(idOfElement).select();
+  document.execCommand("copy");
+  if (doConfirm) {
+    document.getElementById("copyConfirm").innerHTML = "Copied!";
+  }
+
+  // Update generation history
+  let result = document.getElementById(idOfElement).value;
+  //updateGenerationResultHistory(result);
+  //displayHistory();
+}
+
+function saveTextFunction(idOfElement, doConfirm) {
   /* Get the text field */
   document.getElementById(idOfElement).select();
   document.execCommand("copy");
@@ -170,6 +188,7 @@ function copyTextFunction(idOfElement, doConfirm) {
   updateGenerationResultHistory(result);
   displayHistory();
 }
+
 
 function getSelectValues(select) {
   var result = [];
