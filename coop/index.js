@@ -165,7 +165,7 @@ function copyTextFunction(idOfElement, doConfirm) {
   }
 
   // Update generation history
-  let result = document.getElementById("generatedResult").value;
+  let result = document.getElementById(idOfElement).value;
   updateGenerationResultHistory(result);
   displayHistory();
 }
