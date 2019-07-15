@@ -4,16 +4,33 @@
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
 <script type="text/javascript" src="index.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <title>Coop Raid Room Name Generator</title>
 </head>
 
   <body>
-<div id="header">
-  <b>everybody's gbf toolbox<br></b>
-  <div id="navwrap" style="margin-left:-.5em;">
-  <a href="https://clover-ly.github.com" class="header">gw time efficiency calc </a>| 
-  <a href="https://clover-ly.github.com/gw2" class="header">gw goal efficiency calc</a> | 
-  <a href="https://clover-ly.github.com/coop" class="headerselect">coop room name generator</a>
+ <div id="header">
+
+
+    <div id="navoverwrap"> 
+    <div id="navtitle">
+        <img src="https://gbf.wiki/images/b/be/Stamp133.png" name="sticker" style="width:3em"><span style="margin-left:10px;"><b>EVERYBODY'S GBF TOOLBOX</b></span>
+    </div>
+    
+    <div id="navwrap">
+      <div class="navlink">
+      <a href="https://clover-ly.github.com" class="header">gw time efficiency calc </a>
+      </div>
+      <div class="navlink">
+      <a href="https://clover-ly.github.com/gw2" class="header" >gw goal efficiency calc </a>
+      </div>
+      <div class="navlink">
+      <a href="https://clover-ly.github.com/coop" class="header" style="font-weight:bold;">coop room name generator</a>
+      </div>
+      </div>
+      </div>
+    
+    
     
   </div>
 </div><br>
@@ -40,7 +57,9 @@ Set your message and posting accordingly.
 Your room will slowly be pushed to the back of the room board if you do not 'refresh' it quickly.
 Open the room settings (the 'i' on the right) once it has been created and toggle between 'hide' and 'display' in the room board settings to boost your train to the top of the list. 
   </div>
-Raid: 
+  <div id="contentwrap">
+  <div id="optionswrap">
+    <label id="raidlabel">Raid: </label>
 <select name="raid" id="raid" onchange="generate()">
   <option value="europa">Europa</option>
   <option value="shiva">Shiva</option>
@@ -67,15 +86,18 @@ Raid:
   <option value="PBHLintoAkasha">Proto Bahamut HL into Akasha</option>
 </select>
 <br>
-Repeating:<input type="text" name="repeatQuest" id="repeatField" oninput="generate()">
+    
+<label id="repeatinglabel">Repeating:</label>
+    <input type="text" onfocus="material('repeatinglabel', 'repeatField')" onblur="material2('repeatinglabel', 'repeatField')" name="repeatQuest" id="repeatField" oninput="generate()">
 <Br>
-Rank Min: <input type="text" name="rankMin" id = "rankMinField" oninput="generate()">
+  
+ <label id="rankminlabel"> Rank Min: </label><input type="text" name="rankMin" id = "rankMinField" oninput="generate()" onfocus="material('rankminlabel', 'rankMinField')" onblur="material2('rankminlabel', 'rankMinField')" >
 <br>  
-Rank Max: <input type="text" name="rankMax" id = "rankMaxField" oninput="generate()">
+  <label id="rankmaxlabel">Rank Max: </label><input type="text" name="rankMax" id = "rankMaxField" oninput="generate()" onfocus="material('rankmaxlabel', 'rankMaxField')" onblur="material2('rankmaxlabel', 'rankMaxField')" >
 <br>  
 <div class="bloc-header">
-  Other: (ctrl+click for multiple)<br>
-  <select class="bloc" multiple name="extras" id="extrasField" onchange="generate()"> 
+  <label id="extraslabel">Other: (ctrl+click for multiple)<br></label>
+  <select class="bloc" multiple name="extras" id="extrasField" onchange="generate()" > 
     <option value="noExtras">None</option>
     <option value="thPlease">Please Bring TH</option>
     <option value="noDancer">No Dancer</option>
@@ -88,13 +110,17 @@ Rank Max: <input type="text" name="rankMax" id = "rankMaxField" oninput="generat
     <option value="thor30">Using Thor at 30%</option>
     <option value="thor10">Using Thor at 10%</option>
   </select>
+  </div>
 </div>
 <br>
+    <div id="outputwrap">
 Room Title: 
-<input id="generatedResult" value="Your code here">
+<input id="generatedResult" style="color:#aaa;" value="Your code here">
   
 <button id="copyButton" onclick="copyTextFunction()">Copy</button>
   <div id="copyConfirm"></div>
+    </div>
+    </div>
   </div>
   </body>
 </html>
