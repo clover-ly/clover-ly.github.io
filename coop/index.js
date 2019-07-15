@@ -152,7 +152,7 @@ function generate() {
 }
 
 function copyGenerated() {
-  copyTextFunction(generatedResult, true);
+  copyTextFunction("generatedResult", true);
 }
 
 function copyTextFunction(idOfElement, doConfirm) {
