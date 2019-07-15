@@ -218,7 +218,7 @@ function updateGenerationResultHistory(newGeneration) {
   let items = history.split("+");
   const found = items.findIndex((value) => value === newGeneration);
 
-  if (found) {
+  if (found >= 0) {
     items = [items[found], ...items.filter((_, id) => id !== found)];
   } else {
     items = [newGeneration, ...items];
