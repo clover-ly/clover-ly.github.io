@@ -219,7 +219,7 @@ function updateGenerationResultHistory(newGeneration) {
   const found = items.findIndex(newGeneration);
 
   if (found) {
-    items[found] = newGeneration;
+    items = [items[found], ...items.filter((value, id) => id !== found)];
   } else {
     items = [newGeneration, ...items].slice(0, 10);
   }
