@@ -30,8 +30,7 @@ function displayHistory() {
   const history = readGenerationResultHistory();
   const target = document.getElementById("history");
 
-  // Clear previous history
-  target.childNodes = [];
+  clearChildren(target);
 
   for (item of history) {
     const node = document.createTextNode(item);
@@ -220,4 +219,10 @@ function readCookie(key) {
   }
 
   return undefined;
+}
+
+function clearChildren(myNode) {
+  while (myNode.firstChild) {
+    myNode.removeChild(myNode.firstChild);
+  }
 }
