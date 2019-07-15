@@ -1,115 +1,209 @@
-
 <!DOCTYPE html>
 <html>
-
+  
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
-<script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <title> GW Calc</title>
 </head>
+  
+<body onload="displayImg();">
+  <div id="header">
 
-<body>
-<div id="header">
-  <b>everybody's gbf toolbox<br></b>
-  <div id="navwrap" \>
-  <a href="https://clover-ly.github.com" class="headerselect">gw time efficiency calc </a>| 
-  <a href="https://clover-ly.github.com/gw2" class="header">gw goal efficiency calc</a> | 
-  <a href="https://clover-ly.github.com/coop" class="header">coop room name generator</a>
+
+    <div id="navoverwrap"> 
+    <div id="navtitle">
+        <img src="" name="sticker" style="width:3em"><span style="margin-left:10px;"><b>EVERYBODY'S GBF TOOLBOX</b></span>
+    </div>
+    
+    <div id="navwrap">
+      <div class="navlink">
+      <a href="https://clover-ly.github.com" class="header" style="font-weight:bold;">gw time efficiency calc </a>
+      </div>
+      <div class="navlink">
+      <a href="https://clover-ly.github.com/gw2" class="header" >gw goal efficiency calc </a>
+      </div>
+      <div class="navlink">
+      <a href="https://clover-ly.github.com/coop" class="header">coop room name generator</a>
+      </div>
+      </div>
+      </div>
+    
+    
     
   </div>
-</div><br><br>
-<b><span style="font-size:1.2em;">How to Use:<br></b></span>
-  This site allows you to check various rates per hour based on your gw clear times.<br>
-  Updates incoming. Please use <a href="https://clover-ly.github.io/gw2"> this calculator </a>for more robust information.<br>
-  Do your best!<br><br>
   
-  <br>
-
-<b><span style="font-size:1.2em;">Show/Hide:<br></b></span>
-<button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideEx()">Extreme</button>
-<button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideExp()">Extreme+</button>
-<button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideNM90()">NM90</button>
-<button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideNM95()">NM95</button>
-<button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideNM100()">NM100</button>
-<br><br> 
-
-
-<div class="entry" id="ex">
-  <b>Extreme:</b> <br>
-  Clear time (min | sec): 
-  <input type="text" style="width:40px;" id="exTimeInputSec" value="0">
-  <input type="text" style="width:40px;" id="exTimeInputMin" value="0">   
-  <bR>
-
-  Honors: <input type="text" id="exHonorsInput" value="51000"> <br><br>
-  Honors Per Hour: <span id="exHPM">0</span><br>
-  AP Use Per Hour: <span id="exAPUPH">0</span><br>
-  Tokens Per Hour: <span id="exTPH">0</span><br>
-  (<span id="exfph">0</span> fights)
-</div>
- 
-<div class="entry" id="exp">
-  <b>Extreme+:<br> </b>
-   Clear time (min | sec): 
-  <input type="text" style="width:40px;" id="expTimeInputSec" value="0">
-  <input type="text" style="width:40px;" id="expTimeInputMin" value="0">   
-  <br>
-  Honors: <input type="text" id="expHonorsInput" value="72000"> <br><br>
-  Honors Per Hour: <span id="expHPM">0</span><br>
-  AP Use Per Hour: <span id="expAPUPH">0</span><br>
-  Tokens Per Hour: <span id="expTPH">0</span><br>
-  (<span id="expfph">0</span> fights)
-</div>
   
- 
+  <br><br>
+  <b><span style="font-size:1.2em;">How to Use:<br></b></span>
+  This site allows you to check various rates per hour based on your gw clear times.<br> Updates incoming. Please use <a href="https://clover-ly.github.io/gw2"> this calculator </a>for more robust information.<br> Do your best!<br><br>
 
-<div class="entry" id="nm90">
-  <b>Nightmare 90:<br></b>
-   Clear time (min | sec): 
-  <input type="text" style="width:40px;" id="nm90TimeInputSec" value="0">
-  <input type="text" style="width:40px;" id="nm90TimeInputMin" value="0">   
   <br>
-  Honors: <input type="text" id="nm90HonorsInput" value="260000"> <br><br>
-  Honors Per Hour: <span id="nm90HPM">0</span><br>
-  AP Use Per Hour: <span id="nm90APUPH">0</span><br>
-  Tokens Per Hour: <span id="nm90TPH">0</span><br>
-  (<span id="nm90fph">0</span> fights)
-</div>
 
-<div class="entry" id="nm95">
-  <b>Nightmare 95:<br> </b>
-  Clear time (min | sec): 
-  <input type="text" style="width:40px;" id="nm95TimeInputSec" value="0">
-  <input type="text" style="width:40px;" id="nm95TimeInputMin" value="0">   
+  <b><span style="font-size:1.2em;">Show/Hide:<br></b></span>
+  <button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideEx()">Extreme</button>
+  <button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideExp()">Extreme+</button>
+  <button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideNM90()">NM90</button>
+  <button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideNM95()">NM95</button>
+  <button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideNM100()">NM100</button>
+  <br><br>
+
+  <div class="entry" id="ex">
+    <div class="cardhead">
+      <b>Extreme:</b> <br>
+    </div>
+    <div class="cardcontent">
+
+      <div class="inputs">
+        
+        <div class="labelwrap">
+        <input type="text" style="width:40px;" id="exTimeInputMin" value="0" onfocus="material('exmin', 'exTimeInputMin')" onblur="material2('exmin', 'exTimeInputMin')"><label id="exmin">Min </label>
+        </div>
+        
+        <div class="labelwrap">
+        <input type="text" style="width:40px;" id="exTimeInputSec" value="0" onfocus="material('exseclabel', 'exTimeInputSec')" onblur="material2('exseclabel', 'exTimeInputSec')">
+        <label id ="exseclabel">Sec </label>
+        </div>
+        
+        <bR>  <input type="text" id="exHonorsInput" value="51000" onfocus="material('exhonorslabel', 'exHonorsInput')" onblur="material2('exhonorslabel', 'exHonorsInput')"><label id="exhonorslabel">Honors </label><br>  
+      </div>
+        
+      
+
+      <div class="outputs">
+        Honors Per Hour: <span id="exHPM">0</span><br> AP Use Per Hour: <span id="exAPUPH">0</span><br> Tokens Per Hour: <span id="exTPH">0</span><br> (
+        <span id="exfph">0</span> fights)
+      </div>
+
+    </div>
+  </div>
+
+  <div class="entry" id="exp">
+    <div class="cardhead">
+      <b>Extreme+:<br> </b>
+    </div>
+    <div class="cardcontent">
+      <div class="inputs">
+      
+      <div class="labelwrap">
+      <input type="text" style="width:40px;" id="expTimeInputMin" value="0" onfocus="material('expmin', 'expTimeInputMin')" onblur="material2('expmin', 'expTimeInputMin')">
+        <label id="expmin">Min</label>
+      </div>
+        
+        <div class="labelwrap">
+        <input type="text" style="width:40px;" id="expTimeInputSec" value="0" onfocus="material('expseclabel', 'expTimeInputSec')" onblur="material2('expseclabel', 'expTimeInputSec')">
+          <label id="expseclabel">Sec</label></div>
+        
+        
+        <br><input type="text" id="expHonorsInput" value="72000" onfocus="material('exphonorslabel', 'expHonorsInput')" onblur="material2('exphonorslabel', 'expHonorsInput')"> <label id="exphonorslabel"> Honors</label><br> 
+      </div>
+      
+      <div class="outputs">
+      Honors Per Hour: <span id="expHPM">0</span><br> AP Use Per Hour: <span id="expAPUPH">0</span><br> Tokens Per Hour: <span id="expTPH">0</span><br> (
+      <span id="expfph">0</span> fights)
+    </div>
+    </div>
+  </div>
+
+  <div class="entry" id="nm90">
+    <div class="cardhead">
+      <b>Nightmare 90:<br></b>
+    </div>
+    <div class="cardcontent">
+      
+      <div class="inputs">
+
+        
+        <div class="labelwrap">
+      
+        <input type="text" style="width:40px;" id="nm90TimeInputMin" value="0" onfocus="material('90min', 'nm90TimeInputMin')" onblur="material2('90min', 'nm90TimeInputMin')">
+          
+        <label id="90min">Min</label>
+          
+        </div>
+        
+        <div class="labelwrap">
+        
+        <input type="text" style="width:40px;" id="nm90TimeInputSec" value="0"onfocus="material('90seclabel', 'nm90TimeInputSec')" onblur="material2('90seclabel', 'nm90TimeInputSec')">
+          <label id="90seclabel">Sec</label>
+          
+        </div> 
+        
+        <br>  <input type="text" id="nm90HonorsInput" value="260000" onfocus="material('90honorslabel', 'nm90HonorsInput')" onblur="material2('90honorslabel', 'nm90HonorsInput')"> <label id="90honorslabel">Honors</label><br>
+      </div>
+      
+      <div class="outputs">
+      Honors Per Hour: <span id="nm90HPM">0</span><br> AP Use Per Hour: <span id="nm90APUPH">0</span><br> Tokens Per Hour: <span id="nm90TPH">0</span><br> (
+      <span id="nm90fph">0</span> fights)
+      </div>
+    </div>
+  </div>
+
+  <div class="entry" id="nm95">
+    <div class="cardhead">
+      <b>Nightmare 95:<br> </b>
+    </div>
+    <div class="cardcontent">
+      
+      <div class="inputs">
+      
+        <div class="labelwrap">
+      <input type="text" style="width:40px;" id="nm95TimeInputMin" value="0" onfocus="material('95min', 'nm95TimeInputMin')" onblur="material2('95min', 'nm95TimeInputMin')">
+          <label id="95min">Min</label>
+        </div>
+        
+        <div class="labelwrap">
+      <input type="text" style="width:40px;" id="nm95TimeInputSec" value="0" onfocus="material('95seclabel', 'nm95TimeInputSec')" onblur="material2('95seclabel', 'nm95TimeInputSec')">
+          <label id="95seclabel">Sec</label>
+        </div>
+          
+        <br> <input type="text" id="nm95HonorsInput" value="910000" onfocus="material('95honorslabel', 'nm95HonorsInput')" onblur="material2('95honorslabel', 'nm95HonorsInput')"> <label id="95honorslabel">Honors</label><br> 
+      </div>
+      
+      <div class="outputs">
+      Honors Per Hour: <span id="nm95HPM">0</span>
+      <br>AP Use Per Hour: <span id="nm95APUPH">0</span><br> Tokens Per Hour: <span id="nm95TPH">0</span><br> (
+      <span id="nm95fph">0</span> fights)
+      </div>
+    </div>
+  </div>
+
+  <div class="entry" id="nm100">
+    <div class="cardhead">
+      <b>Nightmare 100:<br> </b>
+    </div>
+    <div class="cardcontent">
+
+      <div class="inputs">
+        
+        <div class="labelwrap">
+          
+        <input type="text" style="width:40px;" id="nm100TimeInputMin" value="0" onfocus="material('100min', 'nm100TimeInputMin')" onblur="material2('100min', 'nm100TimeInputMin')">
+          <label id="100min">Min</label>
+        </div>
+        
+        <div class="labelwrap">
+        <input type="text" style="width:40px;" id="nm100TimeInputSec" value="0" onfocus="material('100seclabel', 'nm100TimeInputSec')" onblur="material2('100seclabel', 'nm100TimeInputSec')">
+          <label id="100seclabel">Sec</label>
+        </div>
+
+        <br>  <input type="text" id="nm100HonorsInput" value="2650000" onfocus="material('100honorslabel', 'nm100HonorsInput')" onblur="material2('100honorslabel', 'nm100HonorsInput')"> <label id="100honorslabel">Honors</label><br>
+      </div>
+
+      <div class="outputs">
+        Honors Per Hour: <span id="nm100HPM">0</span>
+        <br>AP Use Per Hour: <span id="nm100APUPH">0</span><br> Tokens Per Hour: <span id="nm100TPH">0</span><br> (
+        <span id="nm100fph">0</span> fights)
+      </diV>
+    </div>
+  </div>
+
   <br>
-  Honors: <input type="text" id="nm95HonorsInput" value="910000"> <br><br>
-  Honors Per Hour: <span id="nm95HPM">0</span>
-  <br>AP Use Per Hour: <span id="nm95APUPH">0</span><br>
-  Tokens Per Hour: <span id="nm95TPH">0</span><br>
-  (<span id="nm95fph">0</span> fights)
-</div>
 
-<div class="entry" id="nm100">
-  <b>Nightmare 100:<br> </b>
-  Clear time (min | sec): 
-  <input type="text" style="width:40px;" id="nm100TimeInputSec" value="0">
-  <input type="text" style="width:40px;" id="nm100TimeInputMin" value="0">   
-  <br>
-  Honors: <input type="text" id="nm100HonorsInput" value="2650000"> <br><br>
-  Honors Per Hour: <span id="nm100HPM">0</span>
-  <br>AP Use Per Hour: <span id="nm100APUPH">0</span><br>
-  Tokens Per Hour: <span id="nm100TPH">0</span><br>
-  (<span id="nm100fph">0</span> fights)
-</div>
- 
-<br>
-
-<button type="button" name="compareButton" onclick="rateCompare()">Compare!</button>
-<button type="button" name="compareButton" onclick="formReset()" style="background:#888;">Reset</button>
-<br><br> 
-  questions concerns complaints or suggestions to cloverly#2544 <img src="https://gbf.wiki/images/c/cd/Stamp94.png" style="width:1.5em;">
-   
-  
+  <button type="button" name="compareButton" onclick="rateCompare()">COMPARE</button>
+  <button type="button" name="compareButton" onclick="formReset()" style="background:#eee;color:#333;">RESET</button>
+ <br><br>
 </html>
 
 </body>
