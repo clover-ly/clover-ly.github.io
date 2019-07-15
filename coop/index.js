@@ -227,7 +227,7 @@ function updateGenerationResultHistory(newGeneration) {
   } else {
     items = [newGeneration, ...items];
   }
-  let newHistory = items.slice(0, 10).join("+");
+  let newHistory = items.slice(0, 10).join("+").slice(0, -1);
   writeCookie(generationHistoryCookieKey, newHistory);
 }
 
