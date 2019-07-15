@@ -16,9 +16,23 @@ var imgArr = [
   "https://gbf.wiki/images/e/e8/Stamp261.png"
 ];
 
+function initialize() {
+  displayImg();
+  displayHistory();
+}
+
 function displayImg() {
   var num = Math.floor(Math.random() * imgArr.length);
   document.sticker.src = imgArr[num];
+}
+
+function displayHistory() {
+  const history = readGenerationResultHistory();
+  const target = document.getElementById("history");
+
+  for (item of history) {
+    target.appendChild(`<span>${item}</spany`);
+  }
 }
 
 function popupclose() {
