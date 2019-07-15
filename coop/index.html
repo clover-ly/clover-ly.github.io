@@ -126,15 +126,29 @@
     </div>
     <br>
     <div id="outputwrap">
-      Room Title:
+      Room Title:<br>
       <input id="generatedResult" style="color:#aaa;" value="Your code here">
-
-      <button id="copyButton" onclick="copyGenerated()">Copy</button>
+      <br>
+      
+      <button id="copyButton" class="mainbutton" style="margin-left:0px;" onclick="copyGenerated()" >
+        copy
+      </button>
+        
+        <button id="saveButton" class="mainbutton" style="margin-left:0px;background:none;color:#333;" onclick="saveGenerated()" >
+      
+      
+      save</button>
+      
+      
       <div id="copyConfirm"></div>
 
-      <div>
+      <br> Saved Titles
+      <label>This site uses cookies to save.</label> <br>
+      <div id="historybox">
         <ul id="history"></ul>
       </div>
+      
+      
     </div>
   </div>
   </div>
