@@ -32,9 +32,29 @@ function displayHistory() {
 
   clearChildren(target);
 
+  const historyKey = "gen-history-";
+  let historyIndex = 0;
   for (item of history) {
-    const node = document.createTextNode(item);
-    target.appendChild(node);
+    const id = historyKey + historyIndex;
+
+    const liNode = document.createElement("li");
+
+    const textNode = document.createElement("span");
+    textNode.setAttribute("id", id);
+    textNode.innerText = item;
+
+    const buttonNode = document.createElement("button");
+    buttonNode.addEventListener("click", () => {
+      /* Get the text field */
+      document.getElementById(id).select();
+      document.execCommand("copy");
+    });
+
+    liNode.appendChild(textNode);
+    liNode.appendChild(buttonNode);
+
+    target.appendChild(liNode);
+    historyIndex += 1;
   }
 }
 
