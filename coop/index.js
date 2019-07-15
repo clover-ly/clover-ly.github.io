@@ -39,9 +39,10 @@ function displayHistory() {
 
     const liNode = document.createElement("li");
 
-    const textNode = document.createElement("span");
+    const textNode = document.createElement("input");
     textNode.setAttribute("id", id);
     textNode.innerText = item;
+    textNode.style = "color:#aaa;";
 
     const buttonNode = document.createElement("button");
     buttonNode.innerText = "Copy";
