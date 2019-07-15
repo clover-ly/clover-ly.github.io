@@ -6,8 +6,6 @@ function displayImg(){
 }
 
 
-displayImg();
-
 
 // shows and hides raid data when boxes are checked. raid parameter is which div to hide. works for anything
 function hideDataCard(raid) {
