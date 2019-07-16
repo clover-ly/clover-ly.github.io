@@ -66,31 +66,46 @@
   </div>
   <div id="contentwrap">
     <div id="optionswrap">
-      <label id="raidlabel">Raid: </label>
+      <label id="raidlabel">Raid/Room: </label>
       <select name="raid" id="raid" onchange="generate()">
+                 <optgroup label="Magna 2">
         <option value="europa">Europa</option>
         <option value="shiva">Shiva</option>
         <option value="grimnir">Grimnir</option>
         <option value="alex">Alexiel</option>
         <option value="metatron">Metatron</option>
         <option value="avatar">Avatar</option>
+        </optgroup>
+        <optgroup label="Bahamut">
         <option value="PBN">Proto Bahamut Normal</option>
         <option value="PBHL">Proto Bahamut HL</option>
         <option value="UBN">Ultimate Bahamut Normal</option>
         <option value="UBHL">Ultimate Bahamut HL</option>
-        <option value="luci">Lucilius Normal</option>
-        <option value="tiaM">Tiamat Malice</option>
-        <option value="aka">Akasha</option>
-        <option value="HL">Huanglong</option>
-        <option value="qilin">Qilin</option>
-        <option value="HLQL">Huanglong/Qilin HL</option>
+        </optgroup>
+        <optgroup label="Coop">
+          <option value="dailies">Coop Dailies</option>
+          <option value="slime">Slimeblast 3-1</option>
+          <option value="creeds">Creed Farming</option>
+          <option value="aka">Akasha</option>
+          <option value="darkblades">Chaos Beast (Darkblades)</option>
+        </optgroup>
+        <optgroup label="Misc HL">
+          <option value="luci">Lucilius Normal</option>
+          <option value="tiaM">Tiamat Malice</option>
+          <option value="HL">Huanglong</option>
+          <option value="qilin">Qilin</option>
+          <option value="HLQL">Huanglong/Qilin HL</option>
+          <option value="PBHLintoAkasha">Proto Bahamut HL into Akasha</option>
         <option value="grande">Grand Order</option>
-        <option value="mika">Michael</option>
-        <option value="gabu">Gabriel</option>
-        <option value="uriel">Uriel</option>
-        <option value="raph">Raphael</option>
-        <option value="fourPrimarchs">Four Primarchs HL</option>
-        <option value="PBHLintoAkasha">Proto Bahamut HL into Akasha</option>
+          <option value="jk">Rose Queen</option>
+        </optgroup>
+        <optgroup label="Primarchs">
+          <option value="mika">Michael</option>
+          <option value="gabu">Gabriel</option>
+          <option value="uriel">Uriel</option>
+          <option value="raph">Raphael</option>
+          <option value="fourPrimarchs">Four Primarchs HL</option>
+        </optgroup>
       </select>
       <br>
 
@@ -108,7 +123,7 @@
         onblur="material2('rankmaxlabel', 'rankMaxField')">
       <br>
       <div class="bloc-header">
-        <label id="extraslabel">Other: (ctrl+click for multiple)<br></label>
+        <label id="extraslabel">Room Details: (ctrl+click for multiple)<br></label>
         <select class="bloc" multiple name="extras" id="extrasField" onchange="generate()">
           <option value="noExtras">None</option>
           <option value="thPlease">Please Bring TH</option>
@@ -127,7 +142,8 @@
     </div>
     <br>
     <div id="outputwrap">
-      Room Title:<br>
+      Room Title:       <span id="copyConfirm"></span>
+<br>
             <input id="generatedResult" style="color:#333;width:220px;border:none;" value="">
       <br>
       
@@ -141,8 +157,6 @@
       save</button>
       
       
-      <div id="copyConfirm"></div>
-
       <br> Saved Titles
       <label>This site uses cookies to save.</label> <br>
       <div id="historybox">
