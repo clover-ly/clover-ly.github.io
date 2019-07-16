@@ -98,6 +98,7 @@ function generate() {
   raidTextList.creeds= "信念集め ";
   raidTextList.darkblades= "EX6-1 ";
   raidTextList.jk= "ローズ ";
+  raidTextList.asta="アスタ";
 
   //get the raid choice from the form. thank u stackoverflow
   var temp1 = document.getElementById("raid");
