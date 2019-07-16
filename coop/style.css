@@ -67,10 +67,10 @@ a.header {
 }
 
 .bloc {
-  height: 200px;
+  height: 150px;
   display: inline-block;
   vertical-align: top;
-  overflow: hidden;
+  overflow: auto;
   border: solid grey 1px;
 }
 
