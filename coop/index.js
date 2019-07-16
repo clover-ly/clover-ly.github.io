@@ -93,6 +93,11 @@ function generate() {
   raidTextList.raph = "ラファ ";
   raidTextList.fourPrimarchs = "四大天司HL ";
   raidTextList.PBHLintoAkasha = "つよばは→アーカーシャ";
+  raidTextList.dailies= "デイリー ";
+  raidTextList.slime= "スラ爆 ";
+  raidTextList.creeds= "信念集め ";
+  raidTextList.darkblades= "EX6-1 ";
+  raidTextList.jk= "ローズ ";
 
   //get the raid choice from the form. thank u stackoverflow
   var temp1 = document.getElementById("raid");
