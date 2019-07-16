@@ -232,6 +232,8 @@ function readGenerationResultHistory() {
     return [];
   }
 
+  history = history.slice(0, -1);
+
   let items = history.split("+");
   return items;
 }
@@ -246,7 +248,7 @@ function updateGenerationResultHistory(newGeneration) {
   } else {
     items = [newGeneration, ...items];
   }
-  let newHistory = items.slice(0, 10).join("+");
+  const newHistory = items.slice(0, 10).join("+");
   writeCookie(generationHistoryCookieKey, newHistory);
 }
 
