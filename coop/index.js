@@ -137,6 +137,7 @@ function generate() {
   extrasList.noLeech = "ワンパン禁止 ";
   extrasList.mvpFree = "M自由";
   extrasList.thPlease = "トレハン募集 ";
+  extrasList.hostAFK = "自発放置";
 
   var extras = document.getElementById("extrasField");
   var selectedExtras = getSelectValues(extras);
