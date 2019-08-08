@@ -84,7 +84,7 @@ function generate() {
   raidTextList.tiaM = "ティアマリス ";
   raidTextList.HL = "黄龍 ";
   raidTextList.qilin = "黒麒麟 ";
-  raidTextList.HLQL = "黄龍・黒麒麟HL";
+  raidTextList.HLQL = "黄龍・黒麒麟HL ";
   raidTextList.grande = "グランデ ";
   raidTextList.aka = "アーカーシャ ";
   raidTextList.mika = "ミカ ";
@@ -92,19 +92,19 @@ function generate() {
   raidTextList.uriel = "ウリエル ";
   raidTextList.raph = "ラファ ";
   raidTextList.fourPrimarchs = "四大天司HL ";
-  raidTextList.PBHLintoAkasha = "つよばは→アーカーシャ";
+  raidTextList.PBHLintoAkasha = "つよばは→アーカーシャ ";
   raidTextList.dailies= "デイリー ";
   raidTextList.slime= "スラ爆 ";
   raidTextList.creeds= "信念集め ";
   raidTextList.darkblades= "EX6-1 ";
   raidTextList.jk= "ローズ ";
-  raidTextList.asta="アスタ";
-  raidTextList.anubis="アヌビス";
-  raidTextList.hector="ヘクトル";
-  raidTextList.morrigna="バイヴカハ";
-  raidTextList.gilgamesh="ギルガ";
-  raidTextList.caong="カー・オン";
-  raidTextList.prom="プロメテウス";
+  raidTextList.asta="アスタ ";
+  raidTextList.anubis="アヌビス ";
+  raidTextList.hector="ヘクトル ";
+  raidTextList.morrigna="バイヴカハ ";
+  raidTextList.gilgamesh="ギルガ ";
+  raidTextList.caong="カー・オン ";
+  raidTextList.prom="プロメテウス ";
 
   //get the raid choice from the form. thank u stackoverflow
   var temp1 = document.getElementById("raid");
@@ -138,18 +138,18 @@ function generate() {
   //extras, same mechanic as raid name
   var extrasList = new Object();
   extrasList.noExtras = "none";
-  extrasList.noDancer = "禁止";
+  extrasList.noDancer = "禁止 ";
   extrasList.weakHost = "主弱 ";
   extrasList.noChrys = "クリュ禁止 ";
   extrasList.noDancer = "ダンサー禁止 ";
   extrasList.exPara = "麻痺延長 ";
-  extrasList.thor10 = "主10ト";
-  extrasList.thor30 = "主30ト";
-  extrasList.thor70 = "主70ト";
+  extrasList.thor10 = "主10ト ";
+  extrasList.thor30 = "主30ト ";
+  extrasList.thor70 = "主70ト ";
   extrasList.noLeech = "ワンパン禁止 ";
-  extrasList.mvpFree = "M自由";
+  extrasList.mvpFree = "M自由 ";
   extrasList.thPlease = "トレハン募集 ";
-  extrasList.hostAFK = "自発放置";
+  extrasList.hostAFK = "自発放置 ";
 
   var extras = document.getElementById("extrasField");
   var selectedExtras = getSelectValues(extras);
