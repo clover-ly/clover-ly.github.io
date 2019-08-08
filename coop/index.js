@@ -99,6 +99,12 @@ function generate() {
   raidTextList.darkblades= "EX6-1 ";
   raidTextList.jk= "ローズ ";
   raidTextList.asta="アスタ";
+  raidTextList.anubis="アヌビス";
+  raidTextList.hector="ヘクトル";
+  raidTextList.morrigna="バイヴカハ";
+  raidTextList.gilgamesh="ギルガ";
+  raidTextList.caong="カー・オン";
+  raidTextList.prom="プロメテウス";
 
   //get the raid choice from the form. thank u stackoverflow
   var temp1 = document.getElementById("raid");
