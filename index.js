@@ -113,6 +113,23 @@ function rateCompare() {
   document.getElementById("nm90HPM").innerHTML = Math.round(nm90HPM);
   document.getElementById("nm95HPM").innerHTML = Math.round(nm95HPM);
   document.getElementById("nm100HPM").innerHTML = Math.round(nm100HPM);
+  
+  //filling out the pots per hour 
+  //just takes the ap per hour and divides it by 75 desu
+  
+  var exPots = exAPUPH/75;
+  var expPots = expAPUPH/75;
+  var nm90Pots = nm90APUPH/75;
+  var nm95Pots = nm95APUPH/75;
+  var nm100Pots = nm100APUPH/75;
+  
+  document.getElementById("exPots").innerHTML = Math.round(exPots);
+  document.getElementById("expPots").innerHTML = Math.round(expPots);
+  document.getElementById("nm90Pots").innerHTML = Math.round(nm90Pots);
+  document.getElementById("nm95Pots").innerHTML = Math.round(nm95Pots);
+  document.getElementById("nm100Pots").innerHTML = Math.round(nm100Pots);
+  
+  
 }
 
 function formReset(){
@@ -164,6 +181,12 @@ function formReset(){
   document.getElementById("nm90fph").innerHTML = 0;
   document.getElementById("nm95fph").innerHTML = 0;
   document.getElementById("nm100fph").innerHTML = 0;
+  
+  document.getElementById("exPots").innerHTML = 0;
+  document.getElementById("expPots").innerHTML = 0;
+  document.getElementById("nm90Pots").innerHTML = 0;
+  document.getElementById("nm95Pots").innerHTML = 0;
+  document.getElementById("nm100Pots").innerHTML = 0;
 
 }
 
