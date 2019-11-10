@@ -169,6 +169,14 @@ function calculate() {
   var totalGoalNm90Tokens = totalGoalNm90*nm90Tokens;
   var totalGoalNm95Tokens = totalGoalNm95*nm95Tokens;
   var totalGoalNm100Tokens = totalGoalNm100*nm100Tokens;
+  
+  //calculate pots by divinding ap bvy 75
+  
+  var totalGoalExPots = Math.ceil(totalGoalExAP/75);
+  var totalGoalExpPots = Math.ceil(totalGoalExpAP/75);
+  var totalGoalNm90Pots = Math.ceil(totalGoalNm90AP/75);
+  var totalGoalNm95Pots = Math.ceil(totalGoalNm95AP/75);
+  var totalGoalNm100Pots = Math.ceil(totalGoalNm100AP/75);
    
   //total time in seconds to mins and secs for readability
 
@@ -206,7 +214,8 @@ function calculate() {
   document.getElementById("exHonorsDisplay").innerHTML = totalGoalExHonors;
   document.getElementById("exTokenDisplay").innerHTML = totalGoalExTokens;
   document.getElementById("exMeatsDisplay").innerHTML = totalGoalExMeat;
-  document.getElementById("exAPDisplay").innerHTML = totalGoalExAP; }else{
+  document.getElementById("exAPDisplay").innerHTML = totalGoalExAP;
+document.getElementById("exPotsDisplay").innerHTML = totalGoalExPots;}else{
   document.getElementById("reportEx").style.display = "none";  }
   
 
@@ -216,7 +225,8 @@ function calculate() {
   document.getElementById("expHonorsDisplay").innerHTML = totalGoalExpHonors;
   document.getElementById("expTokenDisplay").innerHTML = totalGoalExpTokens;
   document.getElementById("expMeatsDisplay").innerHTML = totalGoalExpMeat;
-  document.getElementById("expAPDisplay").innerHTML = totalGoalExpAP;}else{
+  document.getElementById("expAPDisplay").innerHTML = totalGoalExpAP;
+document.getElementById("expPotsDisplay").innerHTML = totalGoalExpPots;}else{
   document.getElementById("reportExp").style.display = "none";  }
   
   
@@ -227,7 +237,7 @@ function calculate() {
   document.getElementById("nm90TokenDisplay").innerHTML = totalGoalNm90Tokens;
   document.getElementById("nm90MeatsDisplay").innerHTML = totalGoalNm90Meat;
   document.getElementById("nm90APDisplay").innerHTML = totalGoalNm90AP;
-document.getElementById("reportnm90").style.display = "inline-block";
+document.getElementById("reportnm90").style.display = "inline-block";                                                       document.getElementById("nm90PotsDisplay").innerHTML = totalGoalNm90Pots;
 }else{
   document.getElementById("reportnm90").style.display = "none";  }
 
@@ -239,7 +249,7 @@ document.getElementById("reportnm90").style.display = "inline-block";
   document.getElementById("nm95HonorsDisplay").innerHTML = totalGoalNm95Honors;
   document.getElementById("nm95TokenDisplay").innerHTML = totalGoalNm95Tokens;
   document.getElementById("nm95MeatsDisplay").innerHTML = totalGoalNm95Meat;
-  document.getElementById("nm95APDisplay").innerHTML = totalGoalNm95AP;}else{
+  document.getElementById("nm95APDisplay").innerHTML = totalGoalNm95AP;document.getElementById("nm95PotsDisplay").innerHTML = totalGoalNm95Pots;}else{
   document.getElementById("reportnm95").style.display = "none";  }
   
  if (document.getElementById("nm100CalcCheck").checked){
@@ -249,8 +259,13 @@ document.getElementById("reportnm90").style.display = "inline-block";
   document.getElementById("nm100HonorsDisplay").innerHTML = totalGoalNm100Honors;
   document.getElementById("nm100TokenDisplay").innerHTML = totalGoalNm100Tokens;
   document.getElementById("nm100MeatsDisplay").innerHTML = totalGoalNm100Meat;
-  document.getElementById("nm100APDisplay").innerHTML = totalGoalNm100AP;}else{
+  document.getElementById("nm100APDisplay").innerHTML = totalGoalNm100AP;
+   document.getElementById("nm100PotsDisplay").innerHTML = totalGoalNm100Pots;}else{
   document.getElementById("reportnm100").style.display = "none";  }
+  
+  
+  
+  
 
 }
 
