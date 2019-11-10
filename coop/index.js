@@ -1,5 +1,5 @@
 //by chloe
-//cloverly#2544
+//cloverly㋐#2544
 
 var imgArr = [
   "https://gbf.wiki/images/b/be/Stamp133.png",
@@ -294,4 +294,9 @@ function clearChildren(myNode) {
   while (myNode.firstChild) {
     myNode.removeChild(myNode.firstChild);
   }
+}
+
+function surveypopupclose() {
+  var x = document.getElementById("popupwrap");
+  x.style.display = "none";
 }
