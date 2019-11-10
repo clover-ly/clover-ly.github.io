@@ -231,3 +231,8 @@ function material2(x, y) {
   labelSelect.style.color = "#555";
    inputSelect.style.borderBottom= "2px solid #bbb";
 }
+
+function popupclose() {
+  var x = document.getElementById("popupwrap");
+  x.style.display = "none";
+}
