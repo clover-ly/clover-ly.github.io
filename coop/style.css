@@ -184,3 +184,27 @@ button {
   overflow:auto;
   
 }
+
+#surveypopup {
+  
+width: 500px;
+    border1:1px solid #bbb;
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  z-index:100;
+  padding:15px;
+  padding-bottom: 30px;
+  left: 50%;
+  margin-left: -350px;
+  position: fixed;
+  top:30px;
+  background:white;
+  display:auto;
+  transition: display 2s;
+  
+}
+
+.popupwrap {
+  justify-content:center;
+  display:flex;
+}
