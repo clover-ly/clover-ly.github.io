@@ -171,7 +171,7 @@ function calculate() {
     } else if (goalNumber>4 && goalNumber<45) {
       goalNumber = 8800+((goalNumber-4)*2000);
     } else if (goalNumber>44) {
-      goalNumber = 80800+((goalNumber-4)*6000);
+      goalNumber = 80800+((goalNumber-44)*6000);
     }
 
     var totalGoalEx = Math.ceil(goalNumber / gainPerEx);
