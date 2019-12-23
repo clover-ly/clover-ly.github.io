@@ -39,8 +39,8 @@
   <h2>GW Goal Efficiency Calculator</h2>
   <div style="max-width: 750px;margin-bottom:30px;">
     <b>How To Use</b><br> This calculator will give you information on what it will take in time and resources to meet your GW goals.<br> It is only as accurate as your reported average time; use a timer and record yourself from 'start' to 'repeat quest'
-    for best results. You can adjust honors to account for sharing raids with someone else; however <b>token count assumes host and MVP.</b> Do your best! Meat is assumed at 3 per ex, 4 per ex+; If these numbers are wrong please bully my crew captain.
-    <b>Meat calculation is gain rate for ex/ex+ and consumption for NMs. </b>You can leave time blank if you aren't interested.<br><br>If you are looking to calculate general time efficiency, use <a href="https://clover-ly.github.io">this tool.</a></div>
+    for best results. You can adjust honors to account for sharing raids with someone else; however <b>token count assumes host and MVP.</b> Do your best! Meat is assumed at 3 per ex, 4 per ex+; Please let me know (cloverly#2544) if you have more accurate estimates. Last updated to reflect <b>Nov 2019 </b>GW changes.
+    You can leave time blank if you aren't interested. If you are looking to calculate general time efficiency, use <a href="https://clover-ly.github.io">this tool.</a><br><br>Note: Finals rally tokens aren't account for in these estimates. I'll stop slacking and fix that sometime.</div>
 <div id="columnwrap">
   
   <div id="inputcolumn">
@@ -68,6 +68,8 @@
     <input type="checkbox" name="nm90Calc" value="nm90" onclick="hideDataCard('nm90DataCard')" id="nm90CalcCheck">Nightmare 90<br>
     <input type="checkbox" name="nm95Calc" value="nm95" onclick="hideDataCard('nm95DataCard')" id="nm95CalcCheck">Nightmare 95<br>
     <input type="checkbox" name="nm100Calc" value="nm100" onclick="hideDataCard('nm100DataCard')" id="nm100CalcCheck">Nightmare 100<br>
+    <input type="checkbox" name="nm150Calc" value="nm150" onclick="hideDataCard('nm150DataCard')" id="nm150CalcCheck"
+           >Nightmare 150<br>
     <br><br>
     <button onclick="calculate()">CALCULATE</button>
     
@@ -246,7 +248,47 @@
     </div>
   </div>
 </div>
+  
+  
+   <div class="card" id="nm150DataCard" style="display:none;">
+        <span class="cardhead"> 
+    <b>Nightmare 150</b>
+  </span>
+        <div class="cardcontent">
+
+          <div class="inputtotalwrap">
+            <div id="labelwrap">
+
+              <input id="nm150HonorsInput" class="styled" onfocus="material('nm150HonorsInputLabel', 'nm150HonorsInput')" onblur="material2('nm150HonorsInputLabel', 'nm150HonorsInput')" value="3600000">
+              <label id="nm150HonorsInputLabel">Honors</label><br><br>
+            </div><br>
+
+            <div id="labelwrap" style="display:inline-block;">
+
+              <input id="nm150TimeInputMin" class="styled shortin" onfocus="material('nm150TimeInputLabelMin', 'nm150TimeInputMin')" onblur="material2('nm150TimeInputLabelMin', 'nm150TimeInputMin')" value="0">
+              <label id="nm150TimeInputLabelMin">Min</label><br><br>
+            </div>
+
+            <div id="labelwrap" style="display:inline-block;">
+
+              <input id="nm150TimeInputSec" class="styled shortin" onfocus="material('nm150TimeInputLabelSec', 'nm150TimeInputSec')" onblur="material2('nm150TimeInputLabelSec', 'nm150TimeInputSec')" value="0">
+              <label id="nm150TimeInputLabelSec">Sec</label><br><br>
+            </div>
+          </diV>
+
+          <div class="reportwrap">
+            <span id="nm150TimeDisplay">00:00:00</span> | <span id="nm150FightCountDisplay">00</span> Fights <br> <span id="nm150HonorsDisplay">00</span> Honors<br> <span id="nm150TokenDisplay">00</span> Tokens <br> <span id="nm150MeatsDisplay">00</span>            Meat use<br> <span id="nm150APDisplay">00</span> AP /
+            <span id="nm150PotsDisplay"> 00</span> Halfpots <br>
+          </div>
+        </div>
+      </div>
+    </div>
+   
   </div>
+  
+  
+  
+  
   </div>
 
   <br><br>
@@ -301,6 +343,17 @@
     <span id="nm100MeatsDisplay">00</span> meat loss<br>
     <span id="nm100APDisplay">00</span><br> 
   </div>
+  
+      <div id="reportnm150" class="reportBox" style="display:none;">
+    <b>Nightmare 150: <br></b><br>
+    <span id="nm150FightCountDisplay">00</span> fights<br>
+    <span id="nm150TimeDisplay">00:00:00</span><br>
+    <span id="nm150HonorsDisplay">00</span> honors<br>
+    <span id="nm150TokenDisplay">00</span> tokens<br>
+    <span id="nm150MeatsDisplay">00</span> meat loss<br>
+    <span id="nm150APDisplay">00</span><br> 
+  </div>
+      
     </div>
 </body>
 
