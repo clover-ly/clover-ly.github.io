@@ -1,5 +1,5 @@
 //by chloe
-//cloverly㋐#2544
+//cloverly#2544
 
 var imgArr = [
   "https://gbf.wiki/images/b/be/Stamp133.png",
@@ -82,10 +82,12 @@ function generate() {
   raidTextList.UBHL = "アルバハHL ";
   raidTextList.luci = "ルシファー ";
   raidTextList.tiaM = "ティアマリス ";
+  raidTextList.leviM = "リヴァイアサンマリス ";
   raidTextList.HL = "黄龍 ";
   raidTextList.qilin = "黒麒麟 ";
   raidTextList.HLQL = "黄龍・黒麒麟HL ";
   raidTextList.grande = "グランデ ";
+  raidTextList.grandeHL = "グランデHL ";
   raidTextList.aka = "アーカーシャ ";
   raidTextList.mika = "ミカ ";
   raidTextList.gabu = "ガブ ";
