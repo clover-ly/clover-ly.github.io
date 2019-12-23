@@ -14,12 +14,14 @@ function rateCompare() {
   var nm90Tokens = 83;
   var nm95Tokens = 111;
   var nm100Tokens = 148;
+  var nm150Tokens = 220;
 
   var exAP = 30;
   var expAP = 30;
   var nm90AP = 30;
   var nm95AP = 40;
   var nm100AP = 50;
+  var nm150AP = 50;
   
   //honors rates
   var exHonors = parseFloat(document.getElementById("exHonorsInput").value);
@@ -27,6 +29,7 @@ function rateCompare() {
   var nm90Honors = parseFloat(document.getElementById("nm90HonorsInput").value); 
   var nm95Honors = parseFloat(document.getElementById("nm95HonorsInput").value);
   var nm100Honors = parseFloat(document.getElementById("nm100HonorsInput").value);
+  var nm150Honors = parseFloat(document.getElementById("nm150HonorsInput").value);
   
   //gets the times from the form
   var exClearTimeMin = parseFloat(document.getElementById("exTimeInputMin").value);
@@ -57,8 +60,16 @@ function rateCompare() {
   var nm100ClearTimeMin = nm100ClearTimeMin*60;
   var nm100ClearTime = nm100ClearTimeSec+nm100ClearTimeMin;
   
+    var nm150ClearTimeMin = parseFloat(document.getElementById("nm150TimeInputMin").value);
+  var nm150ClearTimeSec = parseFloat(document.getElementById("nm150TimeInputSec").value);
+  var nm150ClearTimeMin = nm150ClearTimeMin*60;
+  var nm150ClearTime = nm150ClearTimeSec+nm150ClearTimeMin;
+  
   //using clears per hour for token gain and ap use / writing to page
   //ex+
+  //note to self like a year after writing this:
+  //what the fuck. what the fuck. WHY would you fucking do it like this
+  //TODO fix this disaster
   var expClearPerHour = 3600/expClearTime;
   var expTPH = expTokens*expClearPerHour;
   var expAPUPH = expClearPerHour*expAP;
@@ -93,13 +104,22 @@ function rateCompare() {
   document.getElementById("nm100APUPH").innerHTML = Math.round(nm100APUPH);
   document.getElementById("nm100TPH").innerHTML = Math.round(nm100TPH);
   document.getElementById("nm100fph").innerHTML = Math.round(nm100ClearPerHour);
-
+//nm150
+    var nm150ClearPerHour = 3600/nm150ClearTime;
+  var nm150TPH = nm150Tokens*nm150ClearPerHour;
+  var nm150APUPH = nm150ClearPerHour*nm150AP;
+  document.getElementById("nm150APUPH").innerHTML = Math.round(nm150APUPH);
+  document.getElementById("nm150TPH").innerHTML = Math.round(nm150TPH);
+  document.getElementById("nm150fph").innerHTML = Math.round(nm150ClearPerHour);
+  
+  
   //divides honors by time to get gain per second
   var exHPS = exHonors/exClearTime;
   var expHPS = expHonors/expClearTime;
   var nm90HPS = nm90Honors/nm90ClearTime;
   var nm95HPS = nm95Honors/nm95ClearTime;
   var nm100HPS = nm100Honors/nm100ClearTime;
+  var nm150HPS = nm150Honors/nm150ClearTime;
   
   //converts honors per sec to honors per min and fills out the chart
   var exHPM = exHPS*3600;
@@ -107,12 +127,14 @@ function rateCompare() {
   var nm90HPM = nm90HPS*3600;
   var nm95HPM = nm95HPS*3600;
   var nm100HPM = nm100HPS*3600;
+  var nm150HPM = nm150HPS*3600;
   
   document.getElementById("exHPM").innerHTML = Math.round(exHPM);
   document.getElementById("expHPM").innerHTML = Math.round(expHPM);
   document.getElementById("nm90HPM").innerHTML = Math.round(nm90HPM);
   document.getElementById("nm95HPM").innerHTML = Math.round(nm95HPM);
   document.getElementById("nm100HPM").innerHTML = Math.round(nm100HPM);
+    document.getElementById("nm150HPM").innerHTML = Math.round(nm150HPM);
   
   //filling out the pots per hour 
   //just takes the ap per hour and divides it by 75 desu
@@ -122,12 +144,14 @@ function rateCompare() {
   var nm90Pots = nm90APUPH/75;
   var nm95Pots = nm95APUPH/75;
   var nm100Pots = nm100APUPH/75;
+  var nm150Pots = nm150APUPH/75;
   
   document.getElementById("exPots").innerHTML = Math.round(exPots);
   document.getElementById("expPots").innerHTML = Math.round(expPots);
   document.getElementById("nm90Pots").innerHTML = Math.round(nm90Pots);
   document.getElementById("nm95Pots").innerHTML = Math.round(nm95Pots);
   document.getElementById("nm100Pots").innerHTML = Math.round(nm100Pots);
+  document.getElementById("nm150Pots").innerHTML = Math.round(nm150Pots);
   
   
 }
@@ -139,54 +163,63 @@ function formReset(){
   document.getElementById("nm90HPM").innerHTML = 0;
   document.getElementById("nm95HPM").innerHTML = 0;
   document.getElementById("nm100HPM").innerHTML = 0;
+  document.getElementById("nm150HPM").innerHTML = 0;
   
   document.getElementById("exTimeInputSec").value = 0;
   document.getElementById("expTimeInputSec").value = 0;
   document.getElementById("nm90TimeInputSec").value = 0;
   document.getElementById("nm95TimeInputSec").value = 0;
   document.getElementById("nm100TimeInputSec").value = 0;
+  document.getElementById("nm150TimeInputSec").value = 0;
 
   document.getElementById("exTimeInputMin").value = 0;
   document.getElementById("expTimeInputMin").value = 0;
   document.getElementById("nm90TimeInputMin").value = 0;
   document.getElementById("nm95TimeInputMin").value = 0;
   document.getElementById("nm100TimeInputMin").value = 0;
+  document.getElementById("nm150TimeInputMin").value = 0;
   
   document.getElementById("exHonorsInput").value = 51000;
   document.getElementById("expHonorsInput").value = 72000;
   document.getElementById("nm90HonorsInput").value = 260000;
   document.getElementById("nm95HonorsInput").value = 910000;
   document.getElementById("nm100HonorsInput").value = 2650000;
+  document.getElementById("nm100HonorsInput").value = 3600000;
   
   document.getElementById("ex").style.display = "inline-block";
   document.getElementById("exp").style.display = "inline-block";
   document.getElementById("nm90").style.display = "none";
   document.getElementById("nm95").style.display = "none";
   document.getElementById("nm100").style.display = "none";
+  document.getElementById("nm150").style.display = "none";
   
   document.getElementById("exAPUPH").innerHTML = 0;
   document.getElementById("expAPUPH").innerHTML = 0;
   document.getElementById("nm90APUPH").innerHTML = 0;
   document.getElementById("nm95APUPH").innerHTML = 0;
   document.getElementById("nm100APUPH").innerHTML = 0;
+  document.getElementById("nm150APUPH").innerHTML = 0;
   
   document.getElementById("exTPH").innerHTML = 0;
   document.getElementById("expTPH").innerHTML = 0;
   document.getElementById("nm90TPH").innerHTML = 0;
   document.getElementById("nm95TPH").innerHTML = 0; 
   document.getElementById("nm100TPH").innerHTML = 0;
+  document.getElementById("nm150TPH").innerHTML = 0;
 
   document.getElementById("exfph").innerHTML = 0;
   document.getElementById("expfph").innerHTML = 0;
   document.getElementById("nm90fph").innerHTML = 0;
   document.getElementById("nm95fph").innerHTML = 0;
   document.getElementById("nm100fph").innerHTML = 0;
+  document.getElementById("nm150fph").innerHTML = 0;
   
   document.getElementById("exPots").innerHTML = 0;
   document.getElementById("expPots").innerHTML = 0;
   document.getElementById("nm90Pots").innerHTML = 0;
   document.getElementById("nm95Pots").innerHTML = 0;
   document.getElementById("nm100Pots").innerHTML = 0;
+  document.getElementById("nm150Pots").innerHTML = 0;
 
 }
 
@@ -229,6 +262,15 @@ function hideNM95() {
 
 function hideNM100() {
   var x = document.getElementById("nm100");
+  if (x.style.display === "none") {
+    x.style.display = "inline-block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function hideNM150() {
+  var x = document.getElementById("nm150");
   if (x.style.display === "none") {
     x.style.display = "inline-block";
   } else {
