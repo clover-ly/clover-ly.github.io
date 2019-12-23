@@ -60,6 +60,9 @@ a.header {
 #nm100 {
   display:none;
 }
+#nm150{
+  display:none;
+}
 .entry {
   display:inline-block;
   margin:.3em;
@@ -91,7 +94,6 @@ a.header {
     padding:.7em;
     
 }
-
 
 button {
   padding:10px 16px;
