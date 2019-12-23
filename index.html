@@ -50,6 +50,7 @@
   <button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideNM90()">NM90</button>
   <button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideNM95()">NM95</button>
   <button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideNM100()">NM100</button>
+    <button style="font-size:1em; padding:.6em; margin:.5em;" onclick="hideNM150()">NM150</button>
   <br><br>
 
   <div class="entry" id="ex">
@@ -212,7 +213,41 @@
       </diV>
     </div>
   </div>
+  </div>
 
+   <div class="entry" id="nm150">
+    <div class="cardhead">
+      <b>Nightmare 150:<br> </b>
+    </div>
+    <div class="cardcontent">
+
+      <div class="inputs">
+        
+        <div class="labelwrap">
+          
+        <input type="text" style="width:40px;" id="nm150TimeInputMin" value="0" onfocus="material('150min', 'nm150TimeInputMin')" onblur="material2('150min', 'nm150TimeInputMin')">
+          <label id="150min">Min</label>
+        </div>
+        
+        <div class="labelwrap">
+        <input type="text" style="width:40px;" id="nm150TimeInputSec" value="0" onfocus="material('150seclabel', 'nm150TimeInputSec')" onblur="material2('150seclabel', 'nm150TimeInputSec')">
+          <label id="150seclabel">Sec</label>
+        </div>
+
+        <br>  <input type="text" id="nm150HonorsInput" value="3600000" onfocus="material('150honorslabel', 'nm150HonorsInput')" onblur="material2('150honorslabel', 'nm150HonorsInput')"> <label id="150honorslabel">Honors</label><br>
+      </div>
+
+      <div class="outputs">
+        Honors Per Hour: <span id="nm150HPM">0</span>
+         <br>AP/Hour (Pots): <span id="nm150APUPH">0 </span>
+        (<span id="nm150Pots">0</span>)<br> 
+         Tokens Per Hour: <span id="nm150TPH">0</span><br> (
+        <span id="nm150fph">0</span> fights )
+      </diV>
+    </div>
+  </div>
+  </div>
+  
   <br>
 
   <button type="button" name="compareButton" onclick="rateCompare()">COMPARE</button>
