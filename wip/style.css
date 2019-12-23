@@ -1,0 +1,227 @@
+body {
+  font-family:'Roboto',sans-serif;
+  background: #eee;
+  color:#333;
+  font-size:11pt;
+}
+
+.card {
+  display:inline-block;
+  margin:.3em;
+  overflow:hidden;
+  margin-bottom:8px;
+  min-width:370px;
+  max-width:410px;
+  max-height:170px;
+  background:#fff;
+  border1:1px solid #bbb;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.styled {
+  border:none;
+  border-bottom:2px solid #ccc;
+  transition:.2s ease all;
+}
+
+select {
+  background:#eee;
+  border:none;
+  border-bottom: 2px solid #ccc;
+  color:#333;
+}
+
+#columnwrap {
+display:flex;
+}
+
+#inputcolumn {
+  
+}
+
+.cardcolumn {
+  min-width:450px;
+
+  background:red;
+  overflow:hidden;
+ 
+}
+
+.shortin {
+  width:50px;
+}
+
+label {
+  font-size:8pt;
+  display:block;
+  transition:.2s ease all;
+  position:absolute;
+  color: #555;
+  margin-top:-6ex;
+}
+
+.labelwrap {
+  position:relative;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+
+.cardhead {
+  display:block;
+  background:#2530ba;
+  color:rgba(255,255,255,.85);
+  padding-left:.7em;
+  padding-top:5px;
+  padding-bottom:5px;
+}
+
+.cardcontent {
+    padding:.7em;
+    
+}
+
+h4 {
+  margin-top:0em;
+  margin-bottom:.2em;
+  color:#2530ba;
+  border-bottom:1px solid grey;
+}
+
+.inputtotalwrap {
+  display:inline-block;
+  margin-top:2ex;
+}
+
+.reportwrap {
+  display:inline-block;
+   border-left:1px solid #ddd;
+    margin-left:1em;
+  padding-left:1em;
+    position:relative;
+  top:-1ex;
+ 
+}
+
+#header {
+  min-height:40px;
+  background:#2530ba;
+  margin:-8px;
+  color:rgba(255,255,255,.85);
+  padding:5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+#navwrap {
+  display:flex;
+  justify-content:flex-end;
+  align-items:flex-end;
+}
+.navlink {
+  max-width:100px;
+}
+
+#navoverwrap {
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+}
+
+a.header {
+  display:inline-block;
+  margin-left:0em;
+  color: rgba(255,255,255,.85);
+  font-size:10pt;
+  text-decoration:none;
+}
+
+#navtitle{
+  display:flex;
+  align-items:center;
+}
+
+.fightDataCard {
+  width:220px;
+  display:inline-block;
+  padding:1%;
+  margin:0px;
+  margin-bottom:8px;
+  background:#eee;
+}
+
+button {
+  padding:10px 16px;
+  font-family:'Roboto',sans-serif;
+  font-weight:100;
+  background-color:#2530ba;
+  border:0px;
+  color:#fff;
+  font-size:14px;
+  min-width:64px;
+}
+
+button:hover {
+  background-color:#7981e0;
+  box-shadow:0px 5px 5px -5px rgba(0,0,0,0.5);
+}
+
+h3 {
+  margin:0;
+}
+
+.reportBox {
+  background:#eee;
+  width:150px;
+  padding:.8%;
+  margin:0px;
+  margin-bottom:8px;
+  display:inline-block;
+}
+#radiowrapper {
+  outline:1px soild black;
+  display: inline-block;
+  padding:10px;
+  margin:10px;
+  margin-left:0;
+  width:200px;
+  padding-left:0;
+}
+
+#checkwrapper {
+  margin:10px;
+  outline:1px soild black;
+  display: inline-block;
+  padding:10px;
+}
+
+.medwidthinput {
+  width:120px;
+  margin-bottom:4px;  
+}
+
+#surveypopup {
+  
+width: 500px;
+    border1:1px solid #bbb;
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  z-index:100;
+  padding:10px;
+  padding-bottom: 30px;
+  left: 50%;
+  margin-left: -350px;
+  position: fixed;
+  top:30px;
+  background:white;
+  display:auto;
+  transition: display 2s;
+  
+}
+
+.popupwrap {
+  justify-content:center;
+  display:flex;
+}
