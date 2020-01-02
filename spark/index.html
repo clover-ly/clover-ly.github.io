@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <title>GW Goal Calculator</title>
+</head>
+
+<body onload="displayImg();spark();">
+
+  <div id="header">
+
+    <div id="navoverwrap">
+      <div id="navtitle">
+        <img src="" name="sticker" style="width:3em"><span style="margin-left:10px;"><b>EVERYBODY'S GBF TOOLBOX</b></span>
+      </div>
+
+      <div id="navwrap">
+        <div class="navlink">
+          <a href="https://clover-ly.github.com" class="header">gw time efficiency calc </a>
+        </div>
+        <div class="navlink">
+          <a href="https://clover-ly.github.com/gw2" class="header" >gw goal efficiency calc </a>
+        </div>
+        <div class="navlink">
+          <a href="https://clover-ly.github.com/coop" class="header">coop room name generator</a>
+        </div>
+         <div class="navlink">
+          <a href="https://clover-ly.github.com/coop" class="header" style="font-weight:bold;">spark <br>calculator</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <Br> Just what it says on the tin. There are many like it, but this one's mine. : )<br>
+  <Br><br>
+
+    <div id="columnwrapper">
+    
+      <div class="col1">
+  <div class="inputwrap" style="margin-top:20px;">
+    <input id="singleTix" class="styled shortin" onfocus="material('singleTixLabel', 'singleTix')" onblur="material2('singleTixLabel', 'singleTix')" value="0">
+    <label id="singleTixLabel">1x Tickets</label><br><br>
+  </div>
+
+  <div class="inputwrap">
+    <input id="tenTix" class="styled shortin" onfocus="material('tenTixLabel', 'tenTix')" onblur="material2('tenTixLabel', 'tenTix')" value="0">
+    <label id="tenTixLabel">10x Tickets</label><br><br>
+  </div>
+
+  <div class="inputwrap">
+    <input id="xtals" class="styled shortin" onfocus="material('xtalsLabel', 'xtals')" onblur="material2('xtalsLabel', 'xtals')" value="0">
+    <label id="xtalsLabel">Crystals</label><br><br>
+  </div>
+  <bR>
+  <button onclick="spark()">CALCULATE</button><br><Br>
+    
+   <h2> Draws: <span id="draws">0</span> / 300
+     <br> Progress: <span id="progress">0</span> %<br></h2>
+    </div>
+  <br>
+  <div id="report" class="col2">
+    
+
+    <div id="chartwrap">
+      <canvas id="myChart" height="300px" width="400;"></canvas></div>
+
+  </div>
+    
+   </div>
+
+
+</body>
+
+</html>
