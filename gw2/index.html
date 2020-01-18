@@ -38,10 +38,329 @@
     
     
   </div>
-<bR>
-  <h3>Closed for maintenence! Check back in a few!</h3>
-  <img src="https://gbf.wiki/images/6/6f/Stamp127.png">
 
+  <h2>GW Goal Efficiency Calculator</h2>
+  <div style="max-width: 750px;margin-bottom:30px;">
+    <b>How To Use</b><br> This calculator will give you information on what it will take in time and resources to meet your GW goals.<br> It is only as accurate as your reported average time; use a timer and record yourself from 'start' to 'repeat quest'
+    for best results. You can adjust honors to account for sharing raids with someone else; however <b>token count assumes host and MVP.</b> Do your best! Meat is assumed at 3 per ex, 4 per ex+; Please let me know (cloverly#2544) if you have more accurate estimates. Last updated to reflect <b>Nov 2019 </b>GW changes.
+    You can leave time blank if you aren't interested. If you are looking to calculate general time efficiency, use <a href="https://clover-ly.github.io">this tool.</a><br><br>Note: Finals rally tokens aren't account for in these estimates. I'll stop slacking and fix that sometime.</div>
+<div id="columnwrap">
+  
+  <div id="inputcolumn">
+  <h3>Input:</h3>
+
+  <div id="radiowrapper">
+    <b> Goal: </b><br>
+    
+    <input type="text" id="goalNumber" value="40" class="styled" style="background:#eee;width:85px;margin-top:5px;"> 
+    
+    <select id="goalSelect"  onchange="updateProgText()">
+        <option value=" Boxes">Boxes</option>  
+         <option value=" Tokens">Tokens</option>
+         <option value=" Meats" >Meats</option>
+         <option value=" Honors">Honors</option>  
+     </select><br>
+    <div style="margin-top:10px;">
+      <b>Progress:</b><br>
+           <input type="text" id="progress" value="0" class="styled" style="background:#eee;width:85px;margin-top:5px;"> <span id="progType" style="font-size:.95em;margin-left:3px;">Boxes</span>
+      
+    </div>
+  </div>
+
+
+    <br><b>For:</b><br>
+    <input type="checkbox" name="exCalc" id="exCalcCheck" value="ex" onclick="hideDataCard('extremeDataCard')" checked>Extreme<br>
+    <input type="checkbox" name="expCalc" value="exp" onclick="hideDataCard('expDataCard')" id="expCalcCheck" checked>Extreme+<br>
+    <input type="checkbox" name="nm90Calc" value="nm90" onclick="hideDataCard('nm90DataCard')" id="nm90CalcCheck">Nightmare 90<br>
+    <input type="checkbox" name="nm95Calc" value="nm95" onclick="hideDataCard('nm95DataCard')" id="nm95CalcCheck">Nightmare 95<br>
+    <input type="checkbox" name="nm100Calc" value="nm100" onclick="hideDataCard('nm100DataCard')" id="nm100CalcCheck">Nightmare 100<br>
+    <input type="checkbox" name="nm150Calc" value="nm150" onclick="hideDataCard('nm150DataCard')" id="nm150CalcCheck"
+           >Nightmare 150<br>
+    <br><br>
+    <button onclick="calculate()">CALCULATE</button>
+    
+  </div>
+  
+  
+<br>
+ <div id="cardcolumn">
+  <div class="card" id="extremeDataCard">
+    <span class="cardhead"> 
+    <b>Extreme</b>
+  </span>
+    <div class="cardcontent">
+
+      <div class="inputtotalwrap">
+        <div id="labelwrap">
+
+          <input id="exHonorsInput" class="styled" onfocus="material('exHonorsInputLabel', 'exHonorsInput')" onblur="material2('exHonorsInputLabel', 'exHonorsInput')" value="51000">
+          <label id="exHonorsInputLabel">Honors</label><br><br>
+        </div><br>
+
+        <div id="labelwrap" style="display:inline-block;">
+
+          <input id="exTimeInputMin" class="styled shortin" onfocus="material('exTimeInputLabelMin', 'exTimeInputMin')" onblur="material2('exTimeInputLabelMin', 'exTimeInputMin')" value="0">
+          <label id="exTimeInputLabelMin">Min</label><br><br>
+        </div>
+
+        <div id="labelwrap" style="display:inline-block;">
+
+          <input id="exTimeInputSec" class="styled shortin" onfocus="material('exTimeInputLabelSec', 'exTimeInputSec')" onblur="material2('exTimeInputLabelSec', 'exTimeInputSec')" value="0">
+          <label id="exTimeInputLabelSec">Sec</label><br><br>
+        </div>
+      </diV>
+
+      <div class="reportwrap">
+        <span id="exTimeDisplay">00:00:00</span> | <span id="exFightCountDisplay">00</span> Fights <br> <span id="exHonorsDisplay">00</span> Honors<br> <span id="exTokenDisplay">00</span> Tokens <br> <span id="exMeatsDisplay">00</span> Meat gain<br>
+        <span
+          id="exAPDisplay">00</span> AP /
+        <span id="exPotsDisplay"> 00</span> Halfpots
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="expDataCard">
+    <span class="cardhead"> 
+    <b>Extreme+</b>
+  </span>
+    <div class="cardcontent">
+
+      <div class="inputtotalwrap">
+        <div id="labelwrap">
+
+          <input id="expHonorsInput" class="styled" onfocus="material('expHonorsInputLabel', 'expHonorsInput')" onblur="material2('expHonorsInputLabel', 'expHonorsInput')" value="72000">
+          <label id="expHonorsInputLabel">Honors</label><br><br>
+        </div><br>
+
+        <div id="labelwrap" style="display:inline-block;">
+
+          <input id="expTimeInputMin" class="styled shortin" onfocus="material('expTimeInputLabelMin', 'expTimeInputMin')" onblur="material2('expTimeInputLabelMin', 'expTimeInputMin')" value="0">
+          <label id="expTimeInputLabelMin">Min</label><br><br>
+        </div>
+
+        <div id="labelwrap" style="display:inline-block;">
+
+          <input id="expTimeInputSec" class="styled shortin" onfocus="material('expTimeInputLabelSec', 'expTimeInputSec')" onblur="material2('expTimeInputLabelSec', 'expTimeInputSec')" value="0">
+          <label id="expTimeInputLabelSec">Sec</label><br><br>
+        </div>
+      </diV>
+
+      <div class="reportwrap">
+        <span id="expTimeDisplay">00:00:00</span> | <span id="expFightCountDisplay">00</span> Fights <br> <span id="expHonorsDisplay">00</span> Honors<br> <span id="expTokenDisplay">00</span> Tokens <br> <span id="expMeatsDisplay">00</span> Meat gain<br>        <span id="expAPDisplay">00</span> AP  /
+        <span id="expPotsDisplay"> 00</span> Halfpots<br>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="nm90DataCard" style="display:none;">
+    <span class="cardhead"> 
+    <b>Nightmare 90</b>
+  </span>
+    <div class="cardcontent">
+
+      <div class="inputtotalwrap">
+        <div id="labelwrap">
+
+          <input id="nm90HonorsInput" class="styled" onfocus="material('nm90HonorsInputLabel', 'nm90HonorsInput')" onblur="material2('nm90HonorsInputLabel', 'nm90HonorsInput')" value="260000">
+          <label id="nm90HonorsInputLabel">Honors</label><br><br>
+        </div><br>
+
+        <div id="labelwrap" style="display:inline-block;">
+
+          <input id="nm90TimeInputMin" class="styled shortin" onfocus="material('nm90TimeInputLabelMin', 'nm90TimeInputMin')" onblur="material2('nm90TimeInputLabelMin', 'nm90TimeInputMin')" value="0">
+          <label id="nm90TimeInputLabelMin">Min</label><br><br>
+        </div>
+
+        <div id="labelwrap" style="display:inline-block;">
+
+          <input id="nm90TimeInputSec" class="styled shortin" onfocus="material('nm90TimeInputLabelSec', 'nm90TimeInputSec')" onblur="material2('nm90TimeInputLabelSec', 'nm90TimeInputSec')" value="0">
+          <label id="nm90TimeInputLabelSec">Sec</label><br><br>
+        </div>
+      </diV>
+
+      <div class="reportwrap">
+        <span id="nm90TimeDisplay">00:00:00</span> | <span id="nm90FightCountDisplay">00</span> Fights <br> <span id="nm90HonorsDisplay">00</span> Honors<br> <span id="nm90TokenDisplay">00</span> Tokens <br> <span id="nm90MeatsDisplay">00</span> Meat
+        use<br> <span id="nm90APDisplay">00</span> AP  /
+        <span id="nm90PotsDisplay"> 00</span> Halfpots<br>
+      </div>
+    </div>
+  </div>
+
+  
+<div class="card" id="nm95DataCard" style="display:none;">
+  <span class="cardhead"> 
+    <b>Nightmare 95</b>
+  </span>
+  <div class="cardcontent">
+
+    <div class="inputtotalwrap">
+      <div id="labelwrap">
+        
+        <input id="nm95HonorsInput" class="styled" onfocus="material('nm95HonorsInputLabel', 'nm95HonorsInput')" onblur="material2('nm95HonorsInputLabel', 'nm95HonorsInput')" value="910000">
+        <label id="nm95HonorsInputLabel">Honors</label><br><br>
+      </div><br>
+
+      <div id="labelwrap" style="display:inline-block;">
+
+        <input id="nm95TimeInputMin" class="styled shortin" onfocus="material('nm95TimeInputLabelMin', 'nm95TimeInputMin')" onblur="material2('nm95TimeInputLabelMin', 'nm95TimeInputMin')" value="0">
+        <label id="nm95TimeInputLabelMin">Min</label><br><br>
+      </div>
+
+      <div id="labelwrap" style="display:inline-block;">
+
+        <input id="nm95TimeInputSec" class="styled shortin" onfocus="material('nm95TimeInputLabelSec', 'nm95TimeInputSec')" onblur="material2('nm95TimeInputLabelSec', 'nm95TimeInputSec')" value="0">
+        <label id="nm95TimeInputLabelSec">Sec</label><br><br>
+      </div>
+    </diV>
+
+    <div class="reportwrap">
+       <span id="nm95TimeDisplay">00:00:00</span> | <span id="nm95FightCountDisplay">00</span> Fights <br>   <span id="nm95HonorsDisplay">00</span> Honors<br> <span id="nm95TokenDisplay">00</span> Tokens <br> <span id="nm95MeatsDisplay">00</span> Meat use<br> <span id="nm95APDisplay">00</span> AP  /
+        <span id="nm95PotsDisplay"> 00</span> Halfpots <br>
+    </div>
+  </div>
+</div>
+  
+  
+  <div class="card" id="nm100DataCard" style="display:none;">
+  <span class="cardhead"> 
+    <b>Nightmare 100</b>
+  </span>
+  <div class="cardcontent">
+
+    <div class="inputtotalwrap">
+      <div id="labelwrap">
+        
+        <input id="nm100HonorsInput" class="styled" onfocus="material('nm100HonorsInputLabel', 'nm100HonorsInput')" onblur="material2('nm100HonorsInputLabel', 'nm100HonorsInput')" value="2650000">
+        <label id="nm100HonorsInputLabel">Honors</label><br><br>
+      </div><br>
+
+      <div id="labelwrap" style="display:inline-block;">
+
+        <input id="nm100TimeInputMin" class="styled shortin" onfocus="material('nm100TimeInputLabelMin', 'nm100TimeInputMin')" onblur="material2('nm100TimeInputLabelMin', 'nm100TimeInputMin')" value="0">
+        <label id="nm100TimeInputLabelMin">Min</label><br><br>
+      </div>
+
+      <div id="labelwrap" style="display:inline-block;">
+
+        <input id="nm100TimeInputSec" class="styled shortin" onfocus="material('nm100TimeInputLabelSec', 'nm100TimeInputSec')" onblur="material2('nm100TimeInputLabelSec', 'nm100TimeInputSec')" value="0">
+        <label id="nm100TimeInputLabelSec">Sec</label><br><br>
+      </div>
+    </diV>
+
+    <div class="reportwrap">
+       <span id="nm100TimeDisplay">00:00:00</span> | <span id="nm100FightCountDisplay">00</span> Fights <br>   <span id="nm100HonorsDisplay">00</span> Honors<br> <span id="nm100TokenDisplay">00</span> Tokens <br> <span id="nm100MeatsDisplay">00</span> Meat use<br> <span id="nm100APDisplay">00</span> AP  /
+        <span id="nm100PotsDisplay"> 00</span> Halfpots <br>
+    </div>
+  </div>
+</div>
+  
+  
+   <div class="card" id="nm150DataCard" style="display:none;">
+        <span class="cardhead"> 
+    <b>Nightmare 150</b>
+  </span>
+        <div class="cardcontent">
+
+          <div class="inputtotalwrap">
+            <div id="labelwrap">
+
+              <input id="nm150HonorsInput" class="styled" onfocus="material('nm150HonorsInputLabel', 'nm150HonorsInput')" onblur="material2('nm150HonorsInputLabel', 'nm150HonorsInput')" value="3600000">
+              <label id="nm150HonorsInputLabel">Honors</label><br><br>
+            </div><br>
+
+            <div id="labelwrap" style="display:inline-block;">
+
+              <input id="nm150TimeInputMin" class="styled shortin" onfocus="material('nm150TimeInputLabelMin', 'nm150TimeInputMin')" onblur="material2('nm150TimeInputLabelMin', 'nm150TimeInputMin')" value="0">
+              <label id="nm150TimeInputLabelMin">Min</label><br><br>
+            </div>
+
+            <div id="labelwrap" style="display:inline-block;">
+
+              <input id="nm150TimeInputSec" class="styled shortin" onfocus="material('nm150TimeInputLabelSec', 'nm150TimeInputSec')" onblur="material2('nm150TimeInputLabelSec', 'nm150TimeInputSec')" value="0">
+              <label id="nm150TimeInputLabelSec">Sec</label><br><br>
+            </div>
+          </diV>
+
+          <div class="reportwrap">
+            <span id="nm150TimeDisplay">00:00:00</span> | <span id="nm150FightCountDisplay">00</span> Fights <br> <span id="nm150HonorsDisplay">00</span> Honors<br> <span id="nm150TokenDisplay">00</span> Tokens <br> <span id="nm150MeatsDisplay">00</span>            Meat use<br> <span id="nm150APDisplay">00</span> AP /
+            <span id="nm150PotsDisplay"> 00</span> Halfpots <br>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+  
+  
+  
+  
+  </div>
+
+  <br><br>
+  
+
+  <br>
+  <Br><br>
+    <div style="display:none">
+  <h3>Report:</h3><br> To reach your goal of: <span id="reportGoalDisplay">0 </span>
+  <span id="reportGoalTypeDisplay">honors:</span><br><br>
+
+  <div id="reportEx" class="reportBox">
+    <b>Extreme:</b><br><br>
+
+  </div>
+
+  <div id="reportExp" class="reportBox">
+    <b>Extreme+: <br></b><br>
+    <span id="expFightCountDisplay">00</span> fights<br>
+    <span id="expTimeDisplay">00:00:00</span> <br>
+    <span id="expHonorsDisplay">00</span> honors<br>
+    <span id="expTokenDisplay">00</span> tokens<br>
+    <span id="expMeatsDisplay">00</span> meat gain<br>
+    <span id="expAPDisplay">00</span> AP<br>
+  </div>
+  <div id="reportnm90" class="reportBox" style="display:none;">
+    <b>Nightmare 90: <br></b><br>
+    <span id="nm90FightCountDisplay">00</span> fights<br>
+    <span id="nm90TimeDisplay">00:00:00</span> <br>
+    <span id="nm90HonorsDisplay">00</span> honors<br>
+    <span id="nm90TokenDisplay">00</span> tokens<br>
+    <span id="nm90MeatsDisplay">00</span> meat loss<br>
+    <span id="nm90APDisplay">00</span> AP<br>
+  </div>
+
+  <div id="reportnm95" class="reportBox" style="display:none;">
+    <b>Nightmare 95: <br></b><br>
+    <span id="nm95FightCountDisplay">00</span> fights<br>
+    <span id="nm95TimeDisplay">00:00:00</span><br>
+    <span id="nm95HonorsDisplay">00</span> honors<br>
+    <span id="nm95TokenDisplay">00</span> tokens<br>
+    <span id="nm95MeatsDisplay">00</span> meat loss<br>
+    <span id="nm95APDisplay">00</span> AP<br>
+  </div>
+
+  <div id="reportnm100" class="reportBox" style="display:none;">
+    <b>Nightmare 100: <br></b><br>
+    <span id="nm100FightCountDisplay">00</span> fights<br>
+    <span id="nm100TimeDisplay">00:00:00</span><br>
+    <span id="nm100HonorsDisplay">00</span> honors<br>
+    <span id="nm100TokenDisplay">00</span> tokens<br>
+    <span id="nm100MeatsDisplay">00</span> meat loss<br>
+    <span id="nm100APDisplay">00</span><br> 
+  </div>
+  
+      <div id="reportnm150" class="reportBox" style="display:none;">
+    <b>Nightmare 150: <br></b><br>
+    <span id="nm150FightCountDisplay">00</span> fights<br>
+    <span id="nm150TimeDisplay">00:00:00</span><br>
+    <span id="nm150HonorsDisplay">00</span> honors<br>
+    <span id="nm150TokenDisplay">00</span> tokens<br>
+    <span id="nm150MeatsDisplay">00</span> meat loss<br>
+    <span id="nm150APDisplay">00</span><br> 
+  </div>
+      
+    </div>
 </body>
 
 </html>
