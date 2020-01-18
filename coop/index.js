@@ -1,6 +1,3 @@
-//by chloe
-//cloverly#2544
-
 var imgArr = [
   "https://gbf.wiki/images/b/be/Stamp133.png",
   "https://gbf.wiki/images/f/fd/Stamp242.png",
@@ -16,208 +13,420 @@ var imgArr = [
   "https://gbf.wiki/images/e/e8/Stamp261.png"
 ];
 
-function initialize() {
-  displayImg();
-  displayHistory();
-}
-
 function displayImg() {
   var num = Math.floor(Math.random() * imgArr.length);
   document.sticker.src = imgArr[num];
 }
 
-function displayHistory() {
-  const history = readGenerationResultHistory();
-  const target = document.getElementById("history");
-
-  clearChildren(target);
-
-  const historyKey = "gen-history-";
-  let historyIndex = 0;
-  for (item of history) {
-    const id = historyKey + historyIndex;
-
-    const liNode = document.createElement("li");
-
-    const textNode = document.createElement("input");
-    textNode.setAttribute("id", id);
-    textNode.value = item;
-    textNode.style = "border:none;padding-top:.5em;padding-bottom:.5em;margin:0px;border-top:1px solid #bbb;color:#333;";
-
-    const buttonNode = document.createElement("button");
-    buttonNode.innerText = "Copy";
-    buttonNode.addEventListener("click", () => copyTextFunction(id));
-
-    liNode.appendChild(textNode);
-    liNode.appendChild(buttonNode);
-
-    target.appendChild(liNode);
-    historyIndex += 1;
+// shows and hides raid data when boxes are checked. raid parameter is which div to hide. works for anything
+function hideDataCard(raid) {
+  var x = document.getElementById(raid);
+  if (x.style.display === "none") {
+    x.style.display = "inline-block";
+  } else {
+    x.style.display = "none";
   }
 }
 
-function popupclose() {
-  var x = document.getElementById("howtotrain");
-  x.style.display = "none";
+function updateProgText() {
+    var xx = document.getElementById("goalSelect");
+  var goalType = xx.options[xx.selectedIndex].value;
+   document.getElementById("progType").innerHTML = goalType;
 }
 
-function popupopen() {
-  var x = document.getElementById("howtotrain");
-  x.style.display = "block";
-}
-
-function generate() {
-  var result = "";
-  //assigning the raid names
-  var raidTextList = new Object();
-  raidTextList.europa = "エウロペ ";
-  raidTextList.shiva = "シヴァ ";
-  raidTextList.grimnir = "グリム ";
-  raidTextList.alex = "ゴブロ ";
-  raidTextList.metatron = "メタトロン ";
-  raidTextList.avatar = "アバター ";
-  raidTextList.PBN = "よわバハ ";
-  raidTextList.PBHL = "つよバハ ";
-  raidTextList.UBN = "アルバハ ";
-  raidTextList.UBHL = "アルバハHL ";
-  raidTextList.luci = "ルシファー ";
-  raidTextList.tiaM = "ティアマリス ";
-  raidTextList.leviM = "リヴァイアサンマリス ";
-  raidTextList.HL = "黄龍 ";
-  raidTextList.qilin = "黒麒麟 ";
-  raidTextList.HLQL = "黄龍・黒麒麟HL ";
-  raidTextList.grande = "グランデ ";
-  raidTextList.grandeHL = "グランデHL ";
-  raidTextList.aka = "アーカーシャ ";
-  raidTextList.mika = "ミカ ";
-  raidTextList.gabu = "ガブ ";
-  raidTextList.uriel = "ウリエル ";
-  raidTextList.raph = "ラファ ";
-  raidTextList.fourPrimarchs = "四大天司HL ";
-  raidTextList.PBHLintoAkasha = "つよばは→アーカーシャ ";
-  raidTextList.dailies= "デイリー ";
-  raidTextList.slime= "スラ爆 ";
-  raidTextList.creeds= "信念集め ";
-  raidTextList.darkblades= "EX6-1 ";
-  raidTextList.jk= "ローズ ";
-  raidTextList.asta="アスタ ";
-  raidTextList.anubis="アヌビス ";
-  raidTextList.hector="ヘクトル ";
-  raidTextList.morrigna="バイヴカハ ";
-  raidTextList.gilgamesh="ギルガ ";
-  raidTextList.caong="カー・オン ";
-  raidTextList.prom="プロメテウス ";
-
-  //get the raid choice from the form. thank u stackoverflow
-  var temp1 = document.getElementById("raid");
-  var raidSelection = temp1.options[temp1.selectedIndex].value;
-
-  //find the associated text for the raid, format
-  var raidText = raidTextList[raidSelection];
-  var result = result + raidText;
-
-  //if theres anything in repeating grab it, format
-  if (document.getElementById("repeatField").value.length != 0) {
-    var repeatNumber = document.getElementById("repeatField").value;
-    var repeatNumber = repeatNumber + "連 ";
-    result = result + repeatNumber;
+function calculate() {
+  //grabs the goal number
+  var goalBase = parseFloat(document.getElementById("goalNumber").value);
+  
+  //also grab the progress. subtract the progress from the goal to get the amount they actually need to do, if any lol
+  //note: because of how boxes work nd stuff, this doesnt work for box goals. check down a bit to that part for how i fixed it up
+  
+  var progress = parseFloat(document.getElementById("progress").value);
+  if (goalBase>progress) {
+    var goalNumber = goalBase-progress;
+  } else {
+    goalNumber= 0;
   }
 
-  // rank min. u get the gist here no?
-  if (document.getElementById("rankMinField").value.length != 0) {
-    var rankMinNumber = document.getElementById("rankMinField").value;
-    var rankMinNumber = rankMinNumber + "↑ ";
-    result = result + rankMinNumber;
+//gets the goal type 
+  var st = document.getElementById("goalSelect");
+  var goalType = st.options[st.selectedIndex].value;
+  document.getElementById("reportGoalTypeDisplay").innerHTML = goalType;
+
+  //fight constants
+  var exTokens = 56;
+  var expTokens = 66;
+  var nm90Tokens = 83;
+  var nm95Tokens = 111;
+  var nm100Tokens = 148;
+  var nm150Tokens = 220;
+  
+  var exAP = 30;
+  var expAP = 30;
+  var nm90AP = 30;
+  var nm95AP = 40;
+  var nm100AP = 50;
+  var nm150AP = 50;
+
+  var exMeats = 3;
+  var expMeats = 4;
+  var nm90Meats = 5;
+  var nm95Meats = 10;
+  var nm100Meats = 20;
+  var nm150Meats = 20;
+
+  //grab the inputed honors data
+  var exHonors = parseFloat(document.getElementById("exHonorsInput").value);
+  var expHonors = parseFloat(document.getElementById("expHonorsInput").value);
+  var nm90Honors = parseFloat(document.getElementById("nm90HonorsInput").value);
+  var nm95Honors = parseFloat(document.getElementById("nm95HonorsInput").value);
+  var nm100Honors = parseFloat(
+    document.getElementById("nm100HonorsInput").value
+  );
+  var nm150Honors = parseFloat(document.getElementById("nm150HonorsInput").value);
+
+  //gets the times from the form and converts it to seconds
+  var exClearTimeMin = parseFloat(
+    document.getElementById("exTimeInputMin").value
+  );
+  var exClearTimeSec = parseFloat(
+    document.getElementById("exTimeInputSec").value
+  );
+  var exClearTimeMin;
+  var exClearTimeMin = exClearTimeMin * 60;
+  var exClearTime = exClearTimeSec + exClearTimeMin;
+
+  var expClearTimeMin = parseFloat(
+    document.getElementById("expTimeInputMin").value
+  );
+  var expClearTimeSec = parseFloat(
+    document.getElementById("expTimeInputSec").value
+  );
+  var expClearTimeMin;
+  var expClearTimeMin = expClearTimeMin * 60;
+  var expClearTime = expClearTimeSec + expClearTimeMin;
+
+  var nm90ClearTimeMin = parseFloat(
+    document.getElementById("nm90TimeInputMin").value
+  );
+  var nm90ClearTimeSec = parseFloat(
+    document.getElementById("nm90TimeInputSec").value
+  );
+  var nm90ClearTimeMin;
+  var nm90ClearTimeMin = nm90ClearTimeMin * 60;
+  var nm90ClearTime = nm90ClearTimeSec + nm90ClearTimeMin;
+
+  var nm95ClearTimeMin = parseFloat(
+    document.getElementById("nm95TimeInputMin").value
+  );
+  var nm95ClearTimeSec = parseFloat(
+    document.getElementById("nm95TimeInputSec").value
+  );
+  var nm95ClearTimeMin;
+  var nm95ClearTimeMin = nm95ClearTimeMin * 60;
+  var nm95ClearTime = nm95ClearTimeSec + nm95ClearTimeMin;
+
+  var nm100ClearTimeMin = parseFloat(
+    document.getElementById("nm100TimeInputMin").value
+  );
+  var nm100ClearTimeSec = parseFloat(
+    document.getElementById("nm100TimeInputSec").value
+  );
+  var nm100ClearTimeMin;
+  var nm100ClearTimeMin = nm100ClearTimeMin * 60;
+  var nm100ClearTime = nm100ClearTimeSec + nm100ClearTimeMin;
+  
+  var nm150ClearTimeMin = parseFloat(
+    document.getElementById("nm150TimeInputMin").value
+  );
+  var nm150ClearTimeSec = parseFloat(
+    document.getElementById("nm150TimeInputSec").value
+  );
+  var nm150ClearTimeMin;
+  var nm150ClearTimeMin = nm150ClearTimeMin * 60;
+  var nm150ClearTime = nm150ClearTimeSec + nm150ClearTimeMin;
+
+  //now u have the honors and clear time in seconds.
+
+  //goal material gain per raid.
+  //change this to get the honors from the form
+  switch (goalType) {
+    case " Boxes":
+      var gainPerEx = exTokens;
+      var gainPerExp = expTokens;
+      var gainPerNm90 = nm90Tokens;
+      var gainPerNm95 = nm95Tokens;
+      var gainPerNm100 = nm100Tokens;
+      var gainPerNm150 = nm150Tokens;
+      break;
+    case " Honors":
+      var gainPerEx = exHonors;
+      var gainPerExp = expHonors;
+      var gainPerNm90 = nm90Honors;
+      var gainPerNm95 = nm95Honors;
+      var gainPerNm100 = nm100Honors;
+      var gainPerNm150 = nm150Honors;
+      break;
+    case " Tokens":
+      var gainPerEx = exTokens;
+      var gainPerExp = expTokens;
+      var gainPerNm90 = nm90Tokens;
+      var gainPerNm95 = nm95Tokens;
+      var gainPerNm100 = nm100Tokens;
+      var gainPerNm150 = nm150Tokens;
+      break;
+    case " Meats":
+      var gainPerEx = exMeats;
+      var gainPerExp = expMeats;
+      var gainPerNm90 = nm90Meats;
+      var gainPerNm95 = nm95Meats;
+      var gainPerNm100 = nm100Meats;
+      var gainPerNm150 = nm150Meats;
+      break;
+    default:
   }
+  //from here on gainPer[raid] refers to either tokens honors or meats depending on what was selected.
 
-  // rank max. no I don't get it clouhai
-  if (document.getElementById("rankMaxField").value.length != 0) {
-    var rankMaxNumber = document.getElementById("rankMaxField").value;
-    var rankMaxNumber = rankMaxNumber + "↓ ";
-    result = result + rankMaxNumber;
-  }
+  //if the mode is boxes do the box math, else do the stuff under the other commetn
 
-  //extras, same mechanic as raid name
-  var extrasList = new Object();
-  extrasList.noExtras = "none";
-  extrasList.noDancer = "禁止 ";
-  extrasList.weakHost = "主弱 ";
-  extrasList.noChrys = "クリュ禁止 ";
-  extrasList.noDancer = "ダンサー禁止 ";
-  extrasList.exPara = "麻痺延長 ";
-  extrasList.thor10 = "主10ト ";
-  extrasList.thor30 = "主30ト ";
-  extrasList.thor70 = "主70ト ";
-  extrasList.noLeech = "ワンパン禁止 ";
-  extrasList.mvpFree = "M自由 ";
-  extrasList.thPlease = "トレハン募集 ";
-  extrasList.hostAFK = "自発放置 ";
-
-  var extras = document.getElementById("extrasField");
-  var selectedExtras = getSelectValues(extras);
-  for (var selection of selectedExtras) {
-    var extrasText = extrasList[selection];
-    if (extrasText != "none") {
-      var result = result + extrasText;
+  if (goalType === " Boxes") {
+    //so, counting for boxes is the same as counting for tokens basically
+    //this is the step that converts number of boxes into number of tokens
+    //we do this by changing the goalNumber given in boxes to tokens based on the conversion numbers
+    
+    var goalBaseCalc = 0;
+    
+    if (goalBase==1){
+      goalBaseCalc = 1600;
+    } else if (goalBase<5 && goalBase>1) {
+      goalBaseCalc = 1600+((goalBase-1)*2400);
+    } else if (goalBase>4 && goalBase<45) {
+      goalBaseCalc = 8800+((goalBase-4)*2000);
+    } else if (goalBase>44) {
+      goalBaseCalc = 80800+((goalBase-44)*6000);
     }
-  }
-
-  //bad chloe, no code duplications!
-
-  //take everything and stick it together, spit it out
-  document.getElementById("generatedResult").value = result;
-}
-
-function copyGenerated() {
-  copyTextFunction("generatedResult", true);
-}
-
-function saveGenerated() {
-  saveTextFunction("generatedResult", true);
-}
-
-function copyTextFunction(idOfElement, doConfirm) {
-  /* Get the text field */
-  document.getElementById(idOfElement).select();
-  document.execCommand("copy");
-  if (doConfirm) {
-    document.getElementById("copyConfirm").innerHTML = "Copied!";
-  }
-
-  // Update generation history
-  let result = document.getElementById(idOfElement).value;
-  //updateGenerationResultHistory(result);
-  //displayHistory();
-}
-
-function saveTextFunction(idOfElement, doConfirm) {
-  /* Get the text field */
-  document.getElementById(idOfElement).select();
-  document.execCommand("copy");
-  if (doConfirm) {
-    document.getElementById("copyConfirm").innerHTML = "Copied!";
-  }
-
-  // Update generation history
-  let result = document.getElementById(idOfElement).value;
-  updateGenerationResultHistory(result);
-  displayHistory();
-}
-
-
-function getSelectValues(select) {
-  var result = [];
-  var options = select && select.options;
-  var opt;
-
-  for (var i = 0, iLen = options.length; i < iLen; i++) {
-    opt = options[i];
-
-    if (opt.selected) {
-      result.push(opt.value || opt.text);
+    
+    //the current progress is converted into earned tokens as well
+    
+    var progressCalc = 0;
+    
+        if (progress==1){
+      progressCalc = 1600;
+    } else if (progress<5 && progress>1) {
+      progressCalc = 1600+((progress-1)*2400);
+    } else if (progress>4 && progress<45) {
+      progressCalc = 8800+((progress-4)*2000);
+    } else if (progress>44) {
+      progressCalc = 80800+((progress-44)*6000);
+    } else if (progress==0){
+      progressCalc = 0;
     }
+    
+    //subtract the progress if there is any
+    //this is a mess for various reasons.
+    
+    if (progress==0) {
+      goalNumber = goalBaseCalc;
+    } else {
+      if (progress>goalBase) {
+        goalNumber = 0;
+      } else {
+        goalNumber = goalBaseCalc-progressCalc;
+      }
+    }
+    
+    
+    //the rest of it
+
+    var totalGoalEx = Math.ceil(goalNumber / gainPerEx);
+    var totalGoalExp = Math.ceil(goalNumber / gainPerExp);
+    var totalGoalNm90 = Math.ceil(goalNumber / gainPerNm90);
+    var totalGoalNm95 = Math.ceil(goalNumber / gainPerNm95);
+    var totalGoalNm100 = Math.ceil(goalNumber / gainPerNm100);
+    var totalGoalNm150 = Math.ceil(goalNumber / gainPerNm150);
+    
+  } else {
+    //how much of each to reach goal based on goal amount and gain rate by goal type
+    var totalGoalEx = Math.ceil(goalNumber / gainPerEx);
+    var totalGoalExp = Math.ceil(goalNumber / gainPerExp);
+    var totalGoalNm90 = Math.ceil(goalNumber / gainPerNm90);
+    var totalGoalNm95 = Math.ceil(goalNumber / gainPerNm95);
+    var totalGoalNm100 = Math.ceil(goalNumber / gainPerNm100);
+    var totalGoalNm150 = Math.ceil(goalNumber / gainPerNm150);
   }
-  return result;
+
+  //for each raid type how much of other resources it takes based on the number being done to reach the goal as found above
+
+  var totalGoalExAP = totalGoalEx * exAP;
+  var totalGoalExpAP = totalGoalExp * expAP;
+  var totalGoalNm90AP = totalGoalNm90 * nm90AP;
+  var totalGoalNm95AP = totalGoalNm95 * nm95AP;
+  var totalGoalNm100AP = totalGoalNm100 * nm100AP;
+  var totalGoalNm150AP = totalGoalNm150 * nm150AP;
+
+  var totalGoalExHonors = totalGoalEx * exHonors;
+  var totalGoalExpHonors = totalGoalExp * expHonors;
+  var totalGoalNm90Honors = totalGoalNm90 * nm90Honors;
+  var totalGoalNm95Honors = totalGoalNm95 * nm95Honors;
+  var totalGoalNm100Honors = totalGoalNm100 * nm100Honors;
+  var totalGoalNm150Honors = totalGoalNm150 * nm150Honors;
+
+  var totalGoalExClearTime = totalGoalEx * exClearTime;
+  var totalGoalExpClearTime = totalGoalExp * expClearTime;
+  var totalGoalNm90ClearTime = totalGoalNm90 * nm90ClearTime;
+  var totalGoalNm95ClearTime = totalGoalNm95 * nm95ClearTime;
+  var totalGoalNm100ClearTime = totalGoalNm100 * nm100ClearTime;
+  var totalGoalNm150ClearTime = totalGoalNm150 * nm150ClearTime;
+
+  var totalGoalExMeat = totalGoalEx * exMeats;
+  var totalGoalExpMeat = totalGoalExp * expMeats;
+  var totalGoalNm90Meat = totalGoalNm90 * nm90Meats;
+  var totalGoalNm95Meat = totalGoalNm95 * nm95Meats;
+  var totalGoalNm100Meat = totalGoalNm100 * nm100Meats;
+  var totalGoalNm150Meat = totalGoalNm150 * nm150Meats;
+
+  var totalGoalExTokens = totalGoalEx * exTokens;
+  var totalGoalExpTokens = totalGoalExp * expTokens;
+  var totalGoalNm90Tokens = totalGoalNm90 * nm90Tokens;
+  var totalGoalNm95Tokens = totalGoalNm95 * nm95Tokens;
+  var totalGoalNm100Tokens = totalGoalNm100 * nm100Tokens;
+  var totalGoalNm150Tokens = totalGoalNm150 * nm150Tokens;
+
+  //calculate pots by divinding ap bvy 75
+
+  var totalGoalExPots = Math.ceil(totalGoalExAP / 75);
+  var totalGoalExpPots = Math.ceil(totalGoalExpAP / 75);
+  var totalGoalNm90Pots = Math.ceil(totalGoalNm90AP / 75);
+  var totalGoalNm95Pots = Math.ceil(totalGoalNm95AP / 75);
+  var totalGoalNm100Pots = Math.ceil(totalGoalNm100AP / 75);
+  var totalGoalNm150Pots = Math.ceil(totalGoalNm150AP / 75);
+
+  //total time in seconds to mins and secs for readability
+
+  var exTimeString = new Date(null);
+  exTimeString.setSeconds(totalGoalExClearTime);
+  var exFinalTime = exTimeString.toISOString().substr(11, 8);
+
+  var expTimeString = new Date(null);
+  expTimeString.setSeconds(totalGoalExpClearTime);
+  var expFinalTime = expTimeString.toISOString().substr(11, 8);
+
+  var nm90TimeString = new Date(null);
+  nm90TimeString.setSeconds(totalGoalNm90ClearTime);
+  var nm90FinalTime = nm90TimeString.toISOString().substr(11, 8);
+
+  var nm95TimeString = new Date(null);
+  nm95TimeString.setSeconds(totalGoalNm95ClearTime);
+  var nm95FinalTime = nm95TimeString.toISOString().substr(11, 8);
+
+  var nm100TimeString = new Date(null);
+  nm100TimeString.setSeconds(totalGoalNm100ClearTime);
+  var nm100FinalTime = nm100TimeString.toISOString().substr(11, 8);
+
+  var nm150TimeString = new Date(null);
+  nm150TimeString.setSeconds(totalGoalNm150ClearTime);
+  var nm150FinalTime = nm150TimeString.toISOString().substr(11, 8);
+  
+  //making the report
+  //calculate for each raid what their speeds would take to reach the goal by each material.
+  //display and calc them all, just hide the goal
+
+  //printouts
+
+  if (document.getElementById("exCalcCheck").checked) {
+    document.getElementById("reportEx").style.display = "inline-block";
+    document.getElementById("exFightCountDisplay").innerHTML = totalGoalEx;
+    document.getElementById("exTimeDisplay").innerHTML = exFinalTime;
+    document.getElementById("exHonorsDisplay").innerHTML = totalGoalExHonors;
+    document.getElementById("exTokenDisplay").innerHTML = totalGoalExTokens;
+    document.getElementById("exMeatsDisplay").innerHTML = totalGoalExMeat;
+    document.getElementById("exAPDisplay").innerHTML = totalGoalExAP;
+    document.getElementById("exPotsDisplay").innerHTML = totalGoalExPots;
+  } else {
+    document.getElementById("reportEx").style.display = "none";
+  }
+
+  if (document.getElementById("expCalcCheck").checked) {
+    document.getElementById("reportExp").style.display = "inline-block";
+    document.getElementById("expFightCountDisplay").innerHTML = totalGoalExp;
+    document.getElementById("expTimeDisplay").innerHTML = expFinalTime;
+    document.getElementById("expHonorsDisplay").innerHTML = totalGoalExpHonors;
+    document.getElementById("expTokenDisplay").innerHTML = totalGoalExpTokens;
+    document.getElementById("expMeatsDisplay").innerHTML = totalGoalExpMeat;
+    document.getElementById("expAPDisplay").innerHTML = totalGoalExpAP;
+    document.getElementById("expPotsDisplay").innerHTML = totalGoalExpPots;
+  } else {
+    document.getElementById("reportExp").style.display = "none";
+  }
+
+  if (document.getElementById("nm90CalcCheck").checked) {
+    document.getElementById("reportnm90").style.display = "inline-block";
+    document.getElementById("nm90FightCountDisplay").innerHTML = totalGoalNm90;
+    document.getElementById("nm90TimeDisplay").innerHTML = nm90FinalTime;
+    document.getElementById(
+      "nm90HonorsDisplay"
+    ).innerHTML = totalGoalNm90Honors;
+    document.getElementById("nm90TokenDisplay").innerHTML = totalGoalNm90Tokens;
+    document.getElementById("nm90MeatsDisplay").innerHTML = totalGoalNm90Meat;
+    document.getElementById("nm90APDisplay").innerHTML = totalGoalNm90AP;
+    document.getElementById("reportnm90").style.display = "inline-block";
+    document.getElementById("nm90PotsDisplay").innerHTML = totalGoalNm90Pots;
+  } else {
+    document.getElementById("reportnm90").style.display = "none";
+  }
+
+  if (document.getElementById("nm95CalcCheck").checked) {
+    document.getElementById("reportnm95").style.display = "inline-block";
+    document.getElementById("nm95FightCountDisplay").innerHTML = totalGoalNm95;
+    document.getElementById("nm95TimeDisplay").innerHTML = nm95FinalTime;
+    document.getElementById(
+      "nm95HonorsDisplay"
+    ).innerHTML = totalGoalNm95Honors;
+    document.getElementById("nm95TokenDisplay").innerHTML = totalGoalNm95Tokens;
+    document.getElementById("nm95MeatsDisplay").innerHTML = totalGoalNm95Meat;
+    document.getElementById("nm95APDisplay").innerHTML = totalGoalNm95AP;
+    document.getElementById("nm95PotsDisplay").innerHTML = totalGoalNm95Pots;
+  } else {
+    document.getElementById("reportnm95").style.display = "none";
+  }
+
+  if (document.getElementById("nm100CalcCheck").checked) {
+    document.getElementById("reportnm100").style.display = "inline-block";
+    document.getElementById(
+      "nm100FightCountDisplay"
+    ).innerHTML = totalGoalNm100;
+    document.getElementById("nm100TimeDisplay").innerHTML = nm100FinalTime;
+    document.getElementById(
+      "nm100HonorsDisplay"
+    ).innerHTML = totalGoalNm100Honors;
+    document.getElementById(
+      "nm100TokenDisplay"
+    ).innerHTML = totalGoalNm100Tokens;
+    document.getElementById("nm100MeatsDisplay").innerHTML = totalGoalNm100Meat;
+    document.getElementById("nm100APDisplay").innerHTML = totalGoalNm100AP;
+    document.getElementById("nm100PotsDisplay").innerHTML = totalGoalNm100Pots;
+  } else {
+    document.getElementById("reportnm100").style.display = "none";
+  }
+  
+  if (document.getElementById("nm150CalcCheck").checked) {
+    document.getElementById("reportnm150").style.display = "inline-block";
+    document.getElementById(
+      "nm150FightCountDisplay"
+    ).innerHTML = totalGoalNm150;
+    document.getElementById("nm150TimeDisplay").innerHTML = nm150FinalTime;
+    document.getElementById(
+      "nm150HonorsDisplay"
+    ).innerHTML = totalGoalNm150Honors;
+    document.getElementById(
+      "nm150TokenDisplay"
+    ).innerHTML = totalGoalNm150Tokens;
+    document.getElementById("nm150MeatsDisplay").innerHTML = totalGoalNm150Meat;
+    document.getElementById("nm150APDisplay").innerHTML = totalGoalNm150AP;
+    document.getElementById("nm150PotsDisplay").innerHTML = totalGoalNm150Pots;
+  } else {
+    document.getElementById("reportnm150").style.display = "none";
+  }
 }
 
 function material(x, y) {
@@ -233,72 +442,11 @@ function material2(x, y) {
   var labelSelect = document.getElementById(x);
   var inputSelect = document.getElementById(y);
 
-  labelSelect.style.color = "#555";
+  labelSelect.style.color = "#aaa";
   inputSelect.style.borderBottom = "2px solid #ccc";
 }
 
-// History format ([a-Z]*\+)*
-const generationHistoryCookieKey = "gen-history-max10";
-
-function readGenerationResultHistory() {
-  let history = readCookie(generationHistoryCookieKey);
-
-  if (!history || history === "") {
-    return [];
-  }
-
-  history = history.slice(0, -1);
-
-  let items = history.split("+");
-  return items;
-}
-
-function updateGenerationResultHistory(newGeneration) {
-  let history = readCookie(generationHistoryCookieKey) || "";
-  let items = history.split("+");
-  const found = items.findIndex((value) => value === newGeneration);
-
-  if (found >= 0) {
-    items = [items[found], ...items.filter((_, id) => id !== found)];
-  } else {
-    items = [newGeneration, ...items];
-  }
-  const newHistory = items.slice(0, 10).join("+");
-  writeCookie(generationHistoryCookieKey, newHistory);
-}
-
-function writeCookie(name, value, days) {
-  let expires = "";
-  if (days) {
-    let date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    expires = "; expires=" + date.toUTCString();
-  }
-  document.cookie = name + "=" + (value || "") + expires + "; path=/";
-}
-
-function readCookie(key) {
-  let cookies = document.cookie;
-  let cookiesArray = cookies.split(";");
-
-  for (let cookie of cookiesArray) {
-    var [cookieKey, value] = cookie.split("=");
-
-    if (cookieKey === key) {
-      return value;
-    }
-  }
-
-  return undefined;
-}
-
-function clearChildren(myNode) {
-  while (myNode.firstChild) {
-    myNode.removeChild(myNode.firstChild);
-  }
-}
-
-function surveypopupclose() {
+function popupclose() {
   var x = document.getElementById("popupwrap");
   x.style.display = "none";
 }
