@@ -41,9 +41,9 @@
 
   <h2>GW Goal Efficiency Calculator</h2>
   <div style="max-width: 750px;margin-bottom:30px;">
-    <b>How To Use</b><br> This calculator will give you information on what it will take in time and resources to meet your GW goals.<br> It is only as accurate as your reported average time; use a timer and record yourself from 'start' to 'repeat quest'
-    for best results. You can adjust honors to account for sharing raids with someone else; however <b>token count assumes host and MVP.</b> Do your best! Meat is assumed at 3 per ex, 4 per ex+; Please let me know (cloverly#2544) if you have more accurate estimates. Last updated to reflect <b>Nov 2019 </b>GW changes.
-    You can leave time blank if you aren't interested. If you are looking to calculate general time efficiency, use <a href="https://clover-ly.github.io">this tool.</a><br><br>Note: Finals rally tokens aren't account for in these estimates. I'll stop slacking and fix that sometime.</div>
+    <b>Please Read:</b><br> This calculator will give you information on what it will take in time and resources to meet your GW goals.<br> It is only as accurate as your reported average time; use a timer and record yourself from 'start' to 'repeat quest'
+    for best results. You can adjust honors to account for sharing raids with someone else; however <b>token count assumes host and MVP.</b> Do your best! Meat is assumed at 3 per ex, 4 per ex+; Please let me know (cloverly#2544) if you have more accurate estimates.
+    You can leave time blank if you aren't interested. If you are looking to calculate general time efficiency, use <a href="https://clover-ly.github.io">this tool.</a> Last updated to reflect <b>Nov 2019 </b>GW changes.</div> 
 <div id="columnwrap">
   
   <div id="inputcolumn">
@@ -76,6 +76,11 @@
     <input type="checkbox" name="nm100Calc" value="nm100" onclick="hideDataCard('nm100DataCard')" id="nm100CalcCheck">Nightmare 100<br>
     <input type="checkbox" name="nm150Calc" value="nm150" onclick="hideDataCard('nm150DataCard')" id="nm150CalcCheck"
            >Nightmare 150<br>
+    <br>
+    <b>Include FR Tokens?</b><br>
+    <input type="radio" name="frTokens" value="yes" checked> Yes<br>
+    <input type="radio" name="frTokens" value="no"> No<br>
+    <span style="font-size:8pt;"><i>Please note that FR token calculation assumes solo clear.</i></span>
     <br><br>
     <button onclick="calculate()">CALCULATE</button>
     
