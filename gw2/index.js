@@ -28,12 +28,27 @@ function hideDataCard(raid) {
   }
 }
 
-function calculate() {
-  //grabs the goal type and number from the top.
-  var goalNumber = parseFloat(document.getElementById("goalNumber").value);
-  document.getElementById("reportGoalDisplay").innerHTML = goalNumber;
+function updateProgText() {
+    var xx = document.getElementById("goalSelect");
+  var goalType = xx.options[xx.selectedIndex].value;
+   document.getElementById("progType").innerHTML = goalType;
+}
 
-  //var goalType = document.querySelector('input[name="goalRadio"]:checked').value;
+function calculate() {
+  //grabs the goal number
+  var goalBase = parseFloat(document.getElementById("goalNumber").value);
+  
+  //also grab the progress. subtract the progress from the goal to get the amount they actually need to do, if any lol
+  //note: because of how boxes work nd stuff, this doesnt work for box goals. check down a bit to that part for how i fixed it up
+  
+  var progress = parseFloat(document.getElementById("progress").value);
+  if (goalBase>progress) {
+    var goalNumber = goalBase-progress;
+  } else {
+    goalNumber= 0;
+  }
+
+//gets the goal type 
   var st = document.getElementById("goalSelect");
   var goalType = st.options[st.selectedIndex].value;
   document.getElementById("reportGoalTypeDisplay").innerHTML = goalType;
@@ -137,36 +152,36 @@ function calculate() {
   //change this to get the honors from the form
   switch (goalType) {
     case " Boxes":
-      var gainPerEx = 56;
-      var gainPerExp = 66;
-      var gainPerNm90 = 83;
-      var gainPerNm95 = 111;
-      var gainPerNm100 = 148;
-      var gainPerNm150 = 220;
+      var gainPerEx = exTokens;
+      var gainPerExp = expTokens;
+      var gainPerNm90 = nm90Tokens;
+      var gainPerNm95 = nm95Tokens;
+      var gainPerNm100 = nm100Tokens;
+      var gainPerNm150 = nm150Tokens;
       break;
     case " Honors":
-      var gainPerEx = 51000;
-      var gainPerExp = 72000;
-      var gainPerNm90 = 260000;
-      var gainPerNm95 = 910000;
-      var gainPerNm100 = 2650000;
-      var gainPerNm150 = 3600000;
+      var gainPerEx = exHonors;
+      var gainPerExp = expHonors;
+      var gainPerNm90 = nm90Honors;
+      var gainPerNm95 = nm95Honors;
+      var gainPerNm100 = nm100Honors;
+      var gainPerNm150 = nm150Honors;
       break;
     case " Tokens":
-      var gainPerEx = 56;
-      var gainPerExp = 66;
-      var gainPerNm90 = 83;
-      var gainPerNm95 = 111;
-      var gainPerNm100 = 148;
-      var gainPerNm150 = 220;
+      var gainPerEx = exTokens;
+      var gainPerExp = expTokens;
+      var gainPerNm90 = nm90Tokens;
+      var gainPerNm95 = nm95Tokens;
+      var gainPerNm100 = nm100Tokens;
+      var gainPerNm150 = nm150Tokens;
       break;
     case " Meats":
-      var gainPerEx = 3;
-      var gainPerExp = 4;
-      var gainPerNm90 = 5;
-      var gainPerNm95 = 10;
-      var gainPerNm100 = 20;
-      var gainPerNm150 = 20;
+      var gainPerEx = exMeats;
+      var gainPerExp = expMeats;
+      var gainPerNm90 = nm90Meats;
+      var gainPerNm95 = nm95Meats;
+      var gainPerNm100 = nm100Meats;
+      var gainPerNm150 = nm150Meats;
       break;
     default:
   }
@@ -178,18 +193,50 @@ function calculate() {
     //so, counting for boxes is the same as counting for tokens basically
     //this is the step that converts number of boxes into number of tokens
     //we do this by changing the goalNumber given in boxes to tokens based on the conversion numbers
-
-    //PARAM: a goalNumber 1-80. needs to be converted into token number
     
-    if (goalNumber==1){
-      goalNumber = 1600;
-    } else if (goalNumber<5 && goalNumber>1) {
-      goalNumber = 1600+((goalNumber-1)*2400);
-    } else if (goalNumber>4 && goalNumber<45) {
-      goalNumber = 8800+((goalNumber-4)*2000);
-    } else if (goalNumber>44) {
-      goalNumber = 80800+((goalNumber-44)*6000);
+    var goalBaseCalc = 0;
+    
+    if (goalBase==1){
+      goalBaseCalc = 1600;
+    } else if (goalBase<5 && goalBase>1) {
+      goalBaseCalc = 1600+((goalBase-1)*2400);
+    } else if (goalBase>4 && goalBase<45) {
+      goalBaseCalc = 8800+((goalBase-4)*2000);
+    } else if (goalBase>44) {
+      goalBaseCalc = 80800+((goalBase-44)*6000);
     }
+    
+    //the current progress is converted into earned tokens as well
+    
+    var progressCalc = 0;
+    
+        if (progress==1){
+      progressCalc = 1600;
+    } else if (progress<5 && progress>1) {
+      progressCalc = 1600+((progress-1)*2400);
+    } else if (progress>4 && progress<45) {
+      progressCalc = 8800+((progress-4)*2000);
+    } else if (progress>44) {
+      progressCalc = 80800+((progress-44)*6000);
+    } else if (progress==0){
+      progressCalc = 0;
+    }
+    
+    //subtract the progress if there is any
+    //this is a mess for various reasons.
+    
+    if (progress==0) {
+      goalNumber = goalBaseCalc;
+    } else {
+      if (progress>goalBase) {
+        goalNumber = 0;
+      } else {
+        goalNumber = goalBaseCalc-progressCalc;
+      }
+    }
+    
+    
+    //the rest of it
 
     var totalGoalEx = Math.ceil(goalNumber / gainPerEx);
     var totalGoalExp = Math.ceil(goalNumber / gainPerExp);
