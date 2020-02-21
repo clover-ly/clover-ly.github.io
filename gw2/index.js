@@ -69,16 +69,16 @@ function calculate() {
   //ex can change based on FR totals or not
   
   if (!frHonors) {
-      var exTokens = 56;
+      var exTokens = 56.1;
       var expTokens = 66;
-      var nm90Tokens = 83;
-      var nm95Tokens = 111;
+      var nm90Tokens = 83.1;
+      var nm95Tokens = 111.2;
       var nm100Tokens = 168;
       var nm150Tokens = 220;
   } else {
-      var exTokens = 59.03;
-      var expTokens = 70.32;
-      var nm90Tokens = 98.6;
+      var exTokens = 59.1;
+      var expTokens = 70.5;
+      var nm90Tokens = 98.7;
       var nm95Tokens = 165.6;
       var nm100Tokens = 327;
       var nm150Tokens = 436;
