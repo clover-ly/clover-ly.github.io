@@ -9,11 +9,11 @@ function displayImg(){
 function rateCompare() {
   
   //fight constants
-  var exTokens = 56;
+  var exTokens = 56.1;
   var expTokens = 66;
-  var nm90Tokens = 83;
-  var nm95Tokens = 111;
-  var nm100Tokens = 148;
+  var nm90Tokens = 83.1;
+  var nm95Tokens = 111.2;
+  var nm100Tokens = 168;
   var nm150Tokens = 220;
 
   var exAP = 30;
