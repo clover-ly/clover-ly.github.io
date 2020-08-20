@@ -1,5 +1,5 @@
 //by chloe
-//cloverly#2544
+//questions comments concerns -> twitter @nightairbell 
 
 var imgArr = [
   "https://gbf.wiki/images/b/be/Stamp133.png",
@@ -107,6 +107,16 @@ function generate() {
   raidTextList.gilgamesh="ギルガ ";
   raidTextList.caong="カー・オン ";
   raidTextList.prom="プロメテウス ";
+  raidTextList.fire= "火龍 ";
+  raidTextList.water= "水龍 ";
+  raidTextList.dirt= "土龍 ";
+  raidTextList.wind= "風龍 ";
+  raidTextList.light= "光龍 ";
+  raidTextList.dark= "闇龍 ";
+  raidTextList.lind= "リンドヴルム ";
+  raidTextList.phron= "フロネシス ";
+  raidTextList.luciHL= "ルシHL ";
+  raidTextList.bubs= "バブ ";
 
   //get the raid choice from the form. thank u stackoverflow
   var temp1 = document.getElementById("raid");
