@@ -14,7 +14,7 @@ function rateCompare() {
   var nm90Tokens = 83.1;
   var nm95Tokens = 111.2;
   var nm100Tokens = 168;
-  var nm150Tokens = 220;
+  var nm150Tokens = 257;
 
   var exAP = 30;
   var expAP = 30;
