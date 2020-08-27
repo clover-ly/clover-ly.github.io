@@ -184,7 +184,7 @@ function formReset(){
   document.getElementById("nm90HonorsInput").value = 260000;
   document.getElementById("nm95HonorsInput").value = 910000;
   document.getElementById("nm100HonorsInput").value = 2650000;
-  document.getElementById("nm100HonorsInput").value = 3600000;
+  document.getElementById("nm100HonorsInput").value = 4100000;
   
   document.getElementById("ex").style.display = "inline-block";
   document.getElementById("exp").style.display = "inline-block";
