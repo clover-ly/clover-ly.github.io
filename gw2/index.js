@@ -74,14 +74,14 @@ function calculate() {
       var nm90Tokens = 83.1;
       var nm95Tokens = 111.2;
       var nm100Tokens = 168;
-      var nm150Tokens = 220;
+      var nm150Tokens = 257;
   } else {
       var exTokens = 59.1;
       var expTokens = 70.5;
       var nm90Tokens = 98.7;
       var nm95Tokens = 165.6;
       var nm100Tokens = 327;
-      var nm150Tokens = 436;
+      var nm150Tokens = 503
   }
   
   var exAP = 30;
