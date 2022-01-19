@@ -10,7 +10,8 @@ var imgArr = [
   "https://gbf.wiki/images/7/7c/Stamp79.png",
   "https://gbf.wiki/images/c/c4/Stamp141.png",
   "https://gbf.wiki/images/4/4d/Stamp41.png",
-  "https://gbf.wiki/images/e/e8/Stamp261.png"
+  "https://gbf.wiki/images/e/e8/Stamp261.png",
+  "https://gbf.wiki/images/8/88/Stamp51.png"
 ];
 
 function displayImg() {
