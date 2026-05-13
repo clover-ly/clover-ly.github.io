@@ -4,11 +4,12 @@
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
   <script type="text/javascript" src="index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
   <title>Libraries</title>
 </head>
 
-<body onload="display();updateLoc()">
+
+<body onload="display();updateLoc()" style="font-family: sans-serif;">
 
   <div id="image_box">
     <img id="base_map" src="https://github.com/clover-ly/clover-ly.github.io/blob/master/library/map.png?raw=true" style="width:500px;">
@@ -22,7 +23,15 @@
 
 Welcome to LIBRARY PLANNER. <br>
   Your completion is currently: <span id="total_output">0</span>/30.<br><br>
-  Save code: <input id="save_code_input"> </input><button onclick="generate_save_code()">Generate </button> <button onclick="copy_code()"> Copy</button> <button onclick="apply_save_code()">Apply</button><br><BR>
+  Save code: <input id="save_code_input"> </input><button onclick="generate_save_code()">Generate </button> <button onclick="copy_code()"> Copy</button> <button onclick="apply_save_code()">Apply</button><br>
+  Sort libraries by: <select id ="sortMethod" onChange="changeSort()">
+  <option value="0">Distance</option>
+  <option value="1">Alphabetical</option>
+  </select><br>
+
+
+Home coordinates for distance calculation: LAT <input id="home_lat_input" value="42.84399417994169" style="width:50px;"> LON<input value="-78.82347719189625" id="home_lon_input"  style="width:50px;"> <button onclick="updateLoc()"> Calculate Distance</button>
+<BR><br><BR>
  
   
   On
@@ -50,12 +59,7 @@ Welcome to LIBRARY PLANNER. <br>
   <option value="2000">8:00-8:59PM</option>
   <option value="2100">9:00-9:59PM</option>
 </select>, your options are:<br><br>
-  Sort by: <select id ="sortMethod" onChange="changeSort()">
-  <option value="0">By distance</option>
-  <option value="1">Alphabetical</option>
-  </select><br>
-Home coordinates LAT: <input id="home_lat_input" value="42.84399417994169" style="width:50px;"> LON:<input value="-78.82347719189625" id="home_lon_input"  style="width:50px;"> <button onclick="updateLoc()"> Calculate Distance</button>
-<BR><br>
+
 
 OPEN NOW:<span id="START"></span><br><br><br>
  
