@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <title>Libraries</title>
+</head>
+
+<body onload="display();updateLoc()">
+
+  <div id="image_box">
+    <img id="base_map" src="https://github.com/clover-ly/clover-ly.github.io/blob/master/library/map.png?raw=true" style="width:500px;">
+    <img id="dud_layer" class="overlay_img" src="https://github.com/clover-ly/clover-ly.github.io/blob/master/library/dud_layer.png?raw=true">
+    <img id="egg_layer" class="overlay_img" src="https://github.com/clover-ly/clover-ly.github.io/blob/master/library/egg_layer.png?raw=true">
+    <img id="aur_layer" class="overlay_img" src="https://github.com/clover-ly/clover-ly.github.io/blob/master/library/aur_layer.png?raw=true">
+    
+  </div> 
+  
+<br>  
+
+Welcome to LIBRARY PLANNER. <br>
+  Your completion is currently: <span id="total_output">0</span>/30.<br><br>
+  Save code: <input id="save_code_input"> </input><button onclick="generate_save_code()">Generate </button> <button onclick="copy_code()"> Copy</button> <button onclick="apply_save_code()">Apply</button><br><BR>
+ 
+  
+  On
+<select id="daySelect" onchange="changeDay()">
+  <option value="0">Monday</option>
+  <option value="1" selected>Tuesday</option>
+  <option value="2">Wednesday</option>
+  <option value="3">Thursday</option>
+  <option value="4">Friday</option>
+  <option value="5">Saturday</option>
+  <option value="6">Sunday</option>
+</select> at <select id="timeSelect" onchange="changeTime()">
+  <option value="800">8:00-8:59AM</option>
+  <option value="900">9:00-9:59 AM</option>
+  <option value="1000">10:00-10:59 AM</option>
+  <option value="1100">11:00-11:59 AM</option>
+  <option value="1200">12:00-12:59 PM</option>
+  <option value="1300">1:00-1:59 PM</option>
+  <option value="1400">2:00-2:59PM</option>
+  <option value="1500">3:00-3:59PM</option>
+  <option value="1600">4:00-4:59PM</option>
+  <option value="1700" selected>5:00-5:59PM</option>
+  <option value="1800">6:00-6:59PM</option>
+  <option value="1900">7:00-7:59PM</option>
+  <option value="2000">8:00-8:59PM</option>
+  <option value="2100">9:00-9:59PM</option>
+</select>, your options are:<br><br>
+  Sort by: <select id ="sortMethod" onChange="changeSort()">
+  <option value="0">By distance</option>
+  <option value="1">Alphabetical</option>
+  </select><br>
+Home coordinates LAT: <input id="home_lat_input" value="42.84399417994169" style="width:50px;"> LON:<input value="-78.82347719189625" id="home_lon_input"  style="width:50px;"> <button onclick="updateLoc()"> Calculate Distance</button>
+<BR><br>
+
+OPEN NOW:<span id="START"></span><br><br><br>
+ 
+CLOSED NOW:<span id="END"></span></BR>
