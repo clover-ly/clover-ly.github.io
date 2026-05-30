@@ -1,7 +1,7 @@
 today = 1;
 currentTime = 1700;
-currentLat = 42.84409603515283;
-currentLon = -78.82348781875147;
+currentLat = 42.88538084765786;
+currentLon = -78.8718130714181;
 
 var save_code = "";
 
